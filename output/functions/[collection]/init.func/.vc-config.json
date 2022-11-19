@@ -1,0 +1,8 @@
+{
+  "runtime": "nodejs16.x",
+  "handler": "index.js",
+  "maxDuration": 3,
+  "launcherType": "Nodejs",
+  "shouldAddHelpers": true,
+  "shouldAddSourcemapSupport": true
+}
