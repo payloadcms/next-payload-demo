@@ -10,7 +10,7 @@ module.exports = function getPayload() {
       secret: process.env.PAYLOAD_SECRET,
     });
   
-    initializedPayload = payload_1.default;
+    initializedPayload = payload;
   }
 
   return initializedPayload

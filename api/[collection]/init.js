@@ -1,5 +1,5 @@
-const initOperation = require('payload/dist/auth/operations/init')
-const getPayload = require('./payload')
+const initOperation = require('payload/dist/auth/operations/init').default
+const getPayload = require('../../payload')
 
 module.exports = async function handler(req, res) {
   const payload = getPayload()

@@ -8,9 +8,8 @@
     "dev:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
     "build:server": "tsc",
-    "copy:static": "rm -rf .vercel/output/static/admin && mkdir -p .vercel/output/static && mv build .vercel/output/static/admin",
-    "copy:output": "cp -R output/* .vercel/output/",
-    "build": "yarn copyfiles && yarn build:payload && yarn build:server && yarn copy:static && yarn copy:output",
+    "copy:build": "node build.js",
+    "build": "yarn copyfiles && yarn build:payload && yarn build:server && yarn copy:build",
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
     "generate:graphQLSchema": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema"
