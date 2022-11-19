@@ -1,6 +1,6 @@
 {
-  "name": "payload-template-ts-blank",
-  "description": "Payload project created from ts-blank template",
+  "name": "payload-vercel-functions",
+  "description": "Payload deployed as Vercel functions",
   "version": "1.0.0",
   "main": "dist/server.js",
   "license": "MIT",
@@ -10,8 +10,7 @@
     "build:server": "tsc",
     "build:public": "rm -rf public/admin && mv build public/admin",
     "build:api": "cp -a handlers/. api",
-    "build": "yarn build:server && yarn build:api",
-    "serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
+    "build": "yarn copyfiles && yarn build:payload && yarn build:server && yarn build:public && yarn build:api",
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
     "generate:graphQLSchema": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema"
