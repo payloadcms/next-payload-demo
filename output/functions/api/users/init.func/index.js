@@ -1,7 +1,7 @@
-import initOperation from 'payload/dist/auth/operations/init'
-import getPayload from './payload'
+const initOperation = require('payload/dist/auth/operations/init')
+const getPayload = require('./payload')
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const payload = getPayload()
   const Model = payload.collections[req.query.collection].Model
   const initialized = await initOperation({ req, Model })

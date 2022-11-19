@@ -1,8 +1,8 @@
-import payload from 'payload'
+const payload = require('payload')
 
 const initializedPayload = null;
 
-export default function getPayload() {
+module.exports = function getPayload() {
   if (!initializedPayload) {
     payload.init({
       local: true,
