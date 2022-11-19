@@ -1,5 +1,5 @@
 import initOperation from 'payload/dist/auth/operations/init'
-import payload from '../../payload'
+import payload from './payload'
 
 export default async function handler(req, res) {
   const Model = payload.collections[req.query.collection].Model
