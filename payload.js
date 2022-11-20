@@ -12,13 +12,13 @@ module.exports = function getPayload() {
       console.log(file);
     });
   });
-  
+
   if (!initializedPayload) {
-    payload.init({
-      local: true,
-      mongoURL: process.env.MONGODB_URI,
-      secret: process.env.PAYLOAD_SECRET,
-    });
+    // payload.init({
+    //   local: true,
+    //   mongoURL: process.env.MONGODB_URI,
+    //   secret: process.env.PAYLOAD_SECRET,
+    // });
   
     initializedPayload = payload;
   }
