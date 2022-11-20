@@ -1,7 +1,7 @@
 const payload = require('payload')
 const fs = require('fs')
 
-const initializedPayload = null;
+let initializedPayload = null;
 
 module.exports = function getPayload() {
   console.log({ cwd: process.cwd() })
@@ -20,7 +20,7 @@ module.exports = function getPayload() {
     //   secret: process.env.PAYLOAD_SECRET,
     // });
   
-    initializedPayload = payload;
+    // initializedPayload = payload;
   }
 
   return initializedPayload
