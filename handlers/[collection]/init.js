@@ -5,7 +5,7 @@ const getPayload = require('../../payload')
 
 module.exports = async function handler(req, res) {
   const file = path.resolve(process.cwd(), './dist/payload.config.js');
-  const stringified = readFileSync(file, 'utf8');
+  const stringified = fs.readFileSync(file, 'utf8');
 
   const payload = getPayload()
   const Model = payload.collections[req.query.collection].Model
