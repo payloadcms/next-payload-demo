@@ -1,14 +1,10 @@
-const path = require('path')
-const fs = require('fs')
 const initOperation = require('payload/dist/auth/operations/init').default
-const getPayload = require('../../payload')
+const withPayload = require('../../middleware/withPayload')
 
-module.exports = async function handler(req, res) {
-  const file = path.resolve(process.cwd(), './dist/payload.config.js');
-  const stringified = fs.readFileSync(file, 'utf8');
-
-  const payload = getPayload()
-  const Model = payload.collections[req.query.collection].Model
+async function handler(req, res) {
+  const Model = req.payload.collections[req.query.collection].Model
   const initialized = await initOperation({ req, Model })
-  return res.status(200).json({ initialized, stringified })
+  return res.status(200).json({ initialized })
 }
+
+module.exports = withPayload(handler)
