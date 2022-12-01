@@ -4,7 +4,7 @@
   ],
   "functions": {
     "api/**/*.js": {
-      "includeFiles": "+(/dist/**/*|/node_modules)"
+      "includeFiles": "/dist/**/*"
     }
   }
 }
