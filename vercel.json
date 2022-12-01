@@ -1,10 +1,5 @@
 {
   "rewrites": [
     { "source": "/admin/(.*)", "destination": "/admin/index.html" }
-  ],
-  "functions": {
-    "api/**/*.js": {
-      "includeFiles": "/dist/**/*"
-    }
-  }
+  ]
 }
