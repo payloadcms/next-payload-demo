@@ -1,18 +1,31 @@
 const withPayload = require('../../middleware/withPayload')
 const convertPayloadJSONBody = require('../../middleware/convertPayloadJSONBody')
-const registerFirstUser = require('payload/dist/auth/operations/registerFirstUser').default
+const refresh = require('payload/dist/auth/operations/refresh').default
+const getExtractJWT = require('payload/dist/auth/getExtractJWT').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 
 async function handler(req, res) {
   try {
-    const firstUser = await registerFirstUser({
+    let token;
+
+    const extractJWT = getExtractJWT(req.payload.config);
+    token = extractJWT(req);
+
+    if (req.body.token) {
+      token = req.body.token;
+    }
+
+    const result = await refresh({
       req,
       res,
       collection: req.payload.collections[req.query.collection],
-      data: req.body,
-    })
-  
-    return res.status(200).json(firstUser)
+      token,
+    });
+
+    return res.status(200).json({
+      message: 'Token refresh successful',
+      ...result,
+    });
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
     return errorHandler(error, req, res);

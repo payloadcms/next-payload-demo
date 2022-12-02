@@ -1,18 +1,25 @@
 const withPayload = require('../../middleware/withPayload')
 const convertPayloadJSONBody = require('../../middleware/convertPayloadJSONBody')
-const registerFirstUser = require('payload/dist/auth/operations/registerFirstUser').default
+const login = require('payload/dist/auth/operations/login').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 
 async function handler(req, res) {
   try {
-    const firstUser = await registerFirstUser({
+    const result = await login({
       req,
       res,
       collection: req.payload.collections[req.query.collection],
       data: req.body,
+      depth: parseInt(String(req.query.depth), 10),
     })
   
-    return res.status(200).json(firstUser)
+    return res.status(httpStatus.OK)
+      .json({
+        message: 'Auth Passed',
+        user: result.user,
+        token: result.token,
+        exp: result.exp,
+      });
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
     return errorHandler(error, req, res);

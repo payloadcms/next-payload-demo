@@ -5,52 +5,53 @@ const convertPayloadJSONBody = require('../../middleware/convertPayloadJSONBody'
 const authenticate = require('../../middleware/authenticate')
 const initializePassport = require('../../middleware/initializePassport')
 const formatSuccessResponse = require('payload/dist/express/responses/formatSuccess').default
-const { getTranslation } = require('payload/dist/utilities/getTranslation')
 const i18n = require('../../middleware/i18n')
+const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 
 async function handler(req, res) {
   try {
+
     switch (req.method) {
-      case 'GET': {
-        let page;
-  
-        if (typeof req.query.page === 'string') {
-          const parsedPage = parseInt(req.query.page, 10);
+      case 'PATCH': {
+        const draft = req.query.draft === 'true';
+        const autosave = req.query.autosave === 'true';
     
-          if (!Number.isNaN(parsedPage)) {
-            page = parsedPage;
-          }
-        }
-  
-        const result = await req.payload.find({
+        const doc = await req.payload.update({
           req,
           collection: req.query.collection,
-          where: req.query.where,
-          page,
-          limit: Number(req.query.limit),
-          sort: req.query.sort,
-          depth: Number(req.query.depth),
-          draft: req.query.draft === 'true',
-          overrideAccess: false,
-        })
-  
-        return res.status(200).json(result)
-      }
-  
-      case 'POST': {
-        const doc = await req.payload.create({
-          req,
-          collection: req.query.collection,
+          id: req.query.id,
           data: req.body,
-          depth: Number(req.query.depth),
-          draft: req.query.draft === 'true',
+          depth: parseInt(String(req.query.depth), 10),
+          draft,
+          autosave,
           overrideAccess: false,
-        })
-  
-        return res.status(201).json({
-          ...formatSuccessResponse(req.i18n.t('general:successfullyCreated', { label: getTranslation(req.collection.config.labels.singular, req.i18n) }), 'message'),
+        });
+    
+        let message = req.t('general:updatedSuccessfully');
+    
+        if (draft) message = req.t('versions:draftSavedSuccessfully');
+        if (autosave) message = req.t('versions:autosavedSuccessfully');
+    
+        return res.status(httpStatus.OK).json({
+          ...formatSuccessResponse(message, 'message'),
           doc,
-        })
+        });
+      }
+
+      case 'DELETE': {
+        const doc = await req.payload.delete({
+          req,
+          collection: req.query.collection,
+          id: req.query.id,
+          depth: parseInt(String(req.query.depth), 10),
+          overrideAccess: false,
+        });
+    
+        if (!doc) {
+          return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t));
+        }
+    
+        return res.status(httpStatus.OK).send(doc);
       }
     }
   } catch (error) {
