@@ -5,7 +5,7 @@ const authenticate = require('../middleware/authenticate')
 const initializePassport = require('../middleware/initializePassport')
 const i18n = require('../middleware/i18n')
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
-const withDataLoader = require('../middleware/dataloader')
+const withDataLoader = require('../middleware/dataLoader')
 const graphQLHandler = require('payload/dist/graphql/graphQLHandler').default
 
 async function handler(req, res) {

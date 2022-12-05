@@ -5,7 +5,7 @@ const login = require('payload/dist/auth/operations/login').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 const withCookie = require('../../middleware/cookie')
 const fileUpload = require('../../middleware/fileUpload')
-const withDataLoader = require('../../middleware/dataloader')
+const withDataLoader = require('../../middleware/dataLoader')
 
 async function handler(req, res) {
   try {
