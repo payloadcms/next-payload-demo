@@ -1,5 +1,7 @@
 const withPayload = require('../../middleware/withPayload')
-const convertPayloadJSONBody = require('../../middleware/convertPayloadJSONBody')
+const convertPayloadJSONBody = require('../../middleware/convertPayloadJSONBody');
+const initializePassport = require('../../middleware/initializePassport');
+const authenticate = require('../../middleware/authenticate');
 const logout = require('payload/dist/auth/operations/logout').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 
@@ -20,6 +22,10 @@ async function handler(req, res) {
 
 module.exports = withPayload(
   convertPayloadJSONBody(
-    handler
+    initializePassport(
+      authenticate(
+        handler
+      )
+    )
   )
 )

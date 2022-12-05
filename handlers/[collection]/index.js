@@ -7,6 +7,9 @@ const initializePassport = require('../../middleware/initializePassport')
 const formatSuccessResponse = require('payload/dist/express/responses/formatSuccess').default
 const { getTranslation } = require('payload/dist/utilities/getTranslation')
 const i18n = require('../../middleware/i18n')
+const fileUpload = require('../../middleware/fileUpload')
+const withDataLoader = require('../../middleware/dataLoader')
+const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 
 async function handler(req, res) {
   try {
@@ -46,9 +49,11 @@ async function handler(req, res) {
           draft: req.query.draft === 'true',
           overrideAccess: false,
         })
+
+        const collection = req.payload.collections[req.query.collection]
   
         return res.status(201).json({
-          ...formatSuccessResponse(req.i18n.t('general:successfullyCreated', { label: getTranslation(req.collection.config.labels.singular, req.i18n) }), 'message'),
+          ...formatSuccessResponse(req.i18n.t('general:successfullyCreated', { label: getTranslation(collection.config.labels.singular, req.i18n) }), 'message'),
           doc,
         })
       }
@@ -62,11 +67,15 @@ async function handler(req, res) {
 }
 
 module.exports = withPayload(
-  convertPayloadJSONBody(
-    i18n(
-      initializePassport(
-        authenticate(
-          handler
+  withDataLoader(
+    fileUpload(
+      convertPayloadJSONBody(
+        i18n(
+          initializePassport(
+            authenticate(
+              handler
+            )
+          )
         )
       )
     )

@@ -1,6 +1,7 @@
 const withPayload = require('../../middleware/withPayload')
 const httpStatus = require('http-status')
 const convertPayloadJSONBody = require('../../middleware/convertPayloadJSONBody')
+const fileUpload = require('../../middleware/fileUpload')
 const forgotPassword = require('payload/dist/auth/operations/forgotPassword').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
 
@@ -27,7 +28,9 @@ async function handler(req, res) {
 }
 
 module.exports = withPayload(
-  convertPayloadJSONBody(
-    handler
+  fileUpload(
+    convertPayloadJSONBody(
+      handler
+    )
   )
 )
