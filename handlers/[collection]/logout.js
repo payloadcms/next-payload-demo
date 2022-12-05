@@ -4,6 +4,7 @@ const initializePassport = require('../../middleware/initializePassport');
 const authenticate = require('../../middleware/authenticate');
 const logout = require('payload/dist/auth/operations/logout').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
+const withCookie = require('../../middleware/cookie')
 
 async function handler(req, res) {
   try {
@@ -24,7 +25,9 @@ module.exports = withPayload(
   convertPayloadJSONBody(
     initializePassport(
       authenticate(
-        handler
+        withCookie(
+          handler
+        )
       )
     )
   )

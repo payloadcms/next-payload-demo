@@ -5,6 +5,7 @@ const withDataLoader = require('../../middleware/dataLoader')
 const refresh = require('payload/dist/auth/operations/refresh').default
 const getExtractJWT = require('payload/dist/auth/getExtractJWT').default
 const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
+const withCookie = require('../../middleware/cookie')
 
 async function handler(req, res) {
   try {
@@ -38,7 +39,9 @@ module.exports = withPayload(
   withDataLoader(
     fileUpload(
       convertPayloadJSONBody(
-        handler
+        withCookie(
+          handler
+        )
       )
     )
   )
