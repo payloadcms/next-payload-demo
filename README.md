@@ -12,6 +12,10 @@ It uses a build script to do three things:
 
 There are a few bugs / workarounds that we have had to work around:
 
+#### Need to build BEFORE pushing to Vercel
+
+Unfortunately, we need to build _before_ we deploy to Vercel, because otherwise Vercel won't see our dynamically added `/api` handlers. They apparently need to be present on _push_, rather than be output during the build step.
+
 #### Cold starts
 
 Right now, cold starts are a little problematic because of the fact that we've split out each Payload endpoint into a separate Vercel function. This means that each endpoint will need to be cold-started. We could write a script that keeps each endpoint alive, alleviating the cold-start problem.
