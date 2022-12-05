@@ -42,7 +42,7 @@ We would like to have a handler at `/api/_preferences/[key].js` but unfortunatel
 
 ##### Versions
 
-We have not handled any versions functionality, but that will just be more of the same. Right now, everything works perfectly!
+We have not handled any versions functionality, but that will just be more of the same.
 
 ##### Dynamically writing to an existing `vercel.json`
 
