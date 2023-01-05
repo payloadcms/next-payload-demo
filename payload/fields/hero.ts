@@ -46,14 +46,14 @@ export const hero: Field = {
         maxRows: 2,
       }
     }),
-    // {
-    //   name: 'media',
-    //   type: 'upload',
-    //   relationTo: 'media',
-    //   required: true,
-    //   admin: {
-    //     condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
-    //   },
-    // },
+    {
+      name: 'media',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+      },
+    },
   ],
 };

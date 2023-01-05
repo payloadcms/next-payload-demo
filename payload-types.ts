@@ -52,6 +52,7 @@ export interface Page {
       };
       id?: string;
     }[];
+    media: string | Media;
   };
   layout: (
     | {
@@ -138,6 +139,7 @@ export interface Page {
     | {
         mediaBlockBackgroundColor?: 'white' | 'black';
         position?: 'default' | 'fullscreen';
+        media: string | Media;
         caption?: {
           [k: string]: unknown;
         }[];
@@ -152,6 +154,22 @@ export interface Page {
     description?: string;
   };
   _status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  alt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
   createdAt: string;
   updatedAt: string;
 }
