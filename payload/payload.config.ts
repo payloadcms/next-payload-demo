@@ -10,6 +10,9 @@ import { Media } from './collections/Media';
 
 const adapter = s3Adapter({
   config: {
+    endpoint: process.env.S3_ENDPOINT,
+    region: process.env.S3_REGION,
+    forcePathStyle: true,
     credentials: {
       accessKeyId: process.env.S3_ACCESS_KEY_ID,
       secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
@@ -42,7 +45,8 @@ export default buildConfig({
     cloudStorage({
       collections: {
         'media': {
-          adapter
+          adapter,
+          disablePayloadAccessControl: true,
         }
       },
     }),

@@ -48,6 +48,7 @@ async function handler(req, res) {
           depth: Number(req.query.depth),
           draft: req.query.draft === 'true',
           overrideAccess: false,
+          file: req.files && req.files.file ? req.files.file : undefined,
         })
 
         const collection = req.payload.collections[req.query.collection]

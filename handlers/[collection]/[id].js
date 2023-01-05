@@ -61,7 +61,6 @@ async function handler(req, res) {
     
     switch (req.method) {
       case 'GET': {
-        console.log({ collection: req.query.collection })
         const doc = await req.payload.findByID({
           req,
           collection: req.query.collection,
@@ -87,6 +86,7 @@ async function handler(req, res) {
           draft,
           autosave,
           overrideAccess: false,
+          file: req.files && req.files.file ? req.files.file : undefined
         });
     
         let message = req.t('general:updatedSuccessfully');
