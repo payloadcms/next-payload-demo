@@ -2,9 +2,8 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import React from 'react';
 import Blocks from '../components/Blocks';
 import { Hero } from '../components/Hero';
-import { getApolloClient } from '../graphql';
-import { PAGE, PAGES } from '../graphql/pages';
 import type { MainMenu, Page } from '../payload-types';
+import getPayload from '../payload.js';
 
 const PageTemplate: React.FC<{
   page: Page
@@ -27,41 +26,40 @@ const PageTemplate: React.FC<{
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const apolloClient = getApolloClient();
-  const slug = params?.slug || 'home';
+  const payload = await getPayload();
 
-  const { data } = await apolloClient.query({
-    query: PAGE,
-    variables: {
-      slug,
-    },
-  });
-
-  if (!data.Pages.docs[0]) {
-    return {
-      notFound: true,
+  const pages = await payload.find({
+    collection: 'pages',
+    where: {
+      slug: params?.slug || 'home',
     }
-  }
+  });
+  
+  const page = pages.docs[0];
+
+  const mainMenu = await payload.findGlobal({
+    slug: 'main-menu'
+  });
 
   return {
     props: {
-      id: data.Pages.docs[0].id,
+      page: page || null,
       collection: 'pages',
-      page: data.Pages.docs[0],
-      mainMenu: data.MainMenu,
+      id: page?.id || null,
+      mainMenu: mainMenu || null,
     },
-  };
+  }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const apolloClient = getApolloClient();
+  const payload = await getPayload();
 
-  const { data } = await apolloClient.query({
-    query: PAGES,
-  });
+  const pages = await payload.find({
+    collection: 'pages',
+  })
 
   return {
-    paths: data.Pages.docs.map(({ slug }) => ({
+    paths: pages?.docs?.map(({ slug }) => ({
       params: { slug },
     })),
     fallback: 'blocking',
