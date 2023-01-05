@@ -16,6 +16,7 @@ async function handler(req, res) {
     switch (req.method) {
       case 'GET': {
         let page;
+        let limit;
   
         if (typeof req.query.page === 'string') {
           const parsedPage = parseInt(req.query.page, 10);
@@ -24,18 +25,27 @@ async function handler(req, res) {
             page = parsedPage;
           }
         }
+
+        if (typeof req.query.limit === 'string') {
+          const parsedLimit = parseInt(req.query.limit, 10);
+    
+          if (!Number.isNaN(parsedLimit)) {
+            limit = parsedLimit;
+          }
+        }
   
         const result = await req.payload.find({
           req,
           collection: req.query.collection,
           where: req.query.where,
           page,
-          limit: Number(req.query.limit),
+          limit,
           sort: req.query.sort,
           depth: Number(req.query.depth),
           draft: req.query.draft === 'true',
           overrideAccess: false,
         })
+        console.log(result, page)
   
         return res.status(200).json(result)
       }
