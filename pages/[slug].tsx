@@ -45,6 +45,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      id: data.Pages.docs[0].id,
+      collection: 'pages',
       page: data.Pages.docs[0],
       mainMenu: data.MainMenu,
     },
