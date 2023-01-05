@@ -8,8 +8,6 @@ const withDataLoader = require('../../../middleware/dataLoader')
 
 async function handler(req, res) {
   try {
-    console.log(req.body)
-
     const firstUser = await registerFirstUser({
       req,
       res,
@@ -24,7 +22,13 @@ async function handler(req, res) {
   }
 }
 
-module.exports = withPayload(
+export const config = {
+  api: {
+    bodyParser: false,
+  }
+}
+
+export default withPayload(
   withDataLoader(
     fileUpload(
       withCookies(

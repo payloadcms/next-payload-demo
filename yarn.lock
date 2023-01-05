@@ -4018,10 +4018,10 @@ pause@0.0.1:
   resolved "https://registry.npmjs.org/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
   integrity sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==
 
-payload@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-1.5.2.tgz#a51a8ef42f7110f85bf3f5468ae60c53c1acf4aa"
-  integrity sha512-D54VCw/2ptY8F6od0hXu59r3+t6dNf5RI5Y1l8HfoiPZJLPJ3ho2JXE4zLmGkf/esKW5lEH33N5WqA8jcohcNw==
+payload@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.npmjs.org/payload/-/payload-1.5.3.tgz#8999ae7d1441cb06c70f65bdcc04b332b99c1fd5"
+  integrity sha512-JhKzHC98j+8nVvMu23Dzz+3tKdJ508fw3QF0fDpqmDB82rWDZPkIszHAe/LcIUiWKq8nLvfYGPlUouFpgtK9uQ==
   dependencies:
     "@date-io/date-fns" "^2.10.6"
     "@dnd-kit/core" "^6.0.5"
