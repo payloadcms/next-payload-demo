@@ -12,9 +12,6 @@ export const Pages: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
-  versions: {
-    drafts: true,
-  },
   access: {
     read: publishedOnly,
   },
