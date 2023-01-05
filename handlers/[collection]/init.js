@@ -1,5 +1,5 @@
-const initOperation = require('payload/dist/auth/operations/init').default
-const withPayload = require('../../../middleware/withPayload')
+import initOperation from 'payload/dist/auth/operations/init'
+import withPayload from '../../../middleware/withPayload'
 
 async function handler(req, res) {
   const Model = req.payload.collections[req.query.collection].Model

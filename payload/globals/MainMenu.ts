@@ -7,7 +7,10 @@ export const MainMenu: GlobalConfig = {
     name: 'MainMenu',
   },
   access: {
-    read: () => true,
+    read: ({ req: { user } }) => {
+      if (Boolean(user)) return true;
+      return false;
+    }
   },
   fields: [
     {

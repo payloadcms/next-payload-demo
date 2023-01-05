@@ -1,5 +1,5 @@
-const fileUpload = require('express-fileupload')
-const express = require('express')
+import fileUpload from 'express-fileupload'
+import express from 'express'
 
 module.exports = (handler) => (req, res) => {
   express.json(req.payload.config.express.json)(req, res, () =>

@@ -1,7 +1,7 @@
-const authenticate = require('../../middleware/authenticate')
-const initializePassport = require('../../middleware/initializePassport')
-const withPayload = require('../../middleware/withPayload')
-const access = require('payload/dist/auth/operations/access').default
+import authenticate from '../../middleware/authenticate'
+import initializePassport from '../../middleware/initializePassport'
+import withPayload from '../../middleware/withPayload'
+import access from 'payload/dist/auth/operations/access'
 
 async function handler(req, res) {
   const accessResult = await access({

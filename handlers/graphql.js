@@ -1,12 +1,12 @@
-const withPayload = require('../../middleware/withPayload')
-const httpStatus = require('http-status')
-const NotFound = require('payload/dist/errors/NotFound').default
-const authenticate = require('../../middleware/authenticate')
-const initializePassport = require('../../middleware/initializePassport')
-const i18n = require('../../middleware/i18n')
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
-const withDataLoader = require('../../middleware/dataLoader')
-const graphQLHandler = require('payload/dist/graphql/graphQLHandler').default
+import withPayload from '../../middleware/withPayload'
+import httpStatus from 'http-status'
+import NotFound from 'payload/dist/errors/NotFound'
+import authenticate from '../../middleware/authenticate'
+import initializePassport from '../../middleware/initializePassport'
+import i18n from '../../middleware/i18n'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
+import withDataLoader from '../../middleware/dataLoader'
+import graphQLHandler from 'payload/dist/graphql/graphQLHandler'
 
 async function handler(req, res) {
   try {

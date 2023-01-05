@@ -1,8 +1,8 @@
-const meOperation = require('payload/dist/auth/operations/me').default
-const withPayload = require('../../../middleware/withPayload')
-const authenticate = require('../../../middleware/authenticate')
-const initializePassport = require('../../../middleware/initializePassport')
-const withDataLoader = require('../../../middleware/dataLoader')
+import meOperation from 'payload/dist/auth/operations/me'
+import withPayload from '../../../middleware/withPayload'
+import authenticate from '../../../middleware/authenticate'
+import initializePassport from '../../../middleware/initializePassport'
+import withDataLoader from '../../../middleware/dataLoader'
 
 async function handler(req, res) {
   const collection = req.payload.collections[req.query.collection]

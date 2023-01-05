@@ -1,5 +1,5 @@
-const graphQLPlayground = require('graphql-playground-middleware-express').default
-const withPayload = require('../../middleware/withPayload')
+import graphQLPlayground from 'graphql-playground-middleware-express'
+import withPayload from '../../middleware/withPayload'
 
 async function handler(req, res) {
   return graphQLPlayground({

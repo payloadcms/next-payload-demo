@@ -1,4 +1,4 @@
-const getPayload = require('../payload')
+import getPayload from '../payload'
 
 module.exports = (handler) => async (req, res) => {
   req.payload = await getPayload()

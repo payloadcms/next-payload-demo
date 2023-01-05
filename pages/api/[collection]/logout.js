@@ -1,10 +1,10 @@
-const withPayload = require('../../../middleware/withPayload')
-const convertPayloadJSONBody = require('../../../middleware/convertPayloadJSONBody');
-const initializePassport = require('../../../middleware/initializePassport');
-const authenticate = require('../../../middleware/authenticate');
-const logout = require('payload/dist/auth/operations/logout').default
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
-const withCookie = require('../../../middleware/cookie')
+import withPayload from '../../../middleware/withPayload'
+import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
+import initializePassport from '../../../middleware/initializePassport'
+import authenticate from '../../../middleware/authenticate'
+import logout from 'payload/dist/auth/operations/logout'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
+import withCookie from '../../../middleware/cookie'
 
 async function handler(req, res) {
   try {
