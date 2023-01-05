@@ -1,4 +1,4 @@
-const authenticate = require('..../middleware/authenticate')
+const authenticate = require('../../middleware/authenticate')
 const initializePassport = require('../../middleware/initializePassport')
 const withPayload = require('../../middleware/withPayload')
 const access = require('payload/dist/auth/operations/access').default

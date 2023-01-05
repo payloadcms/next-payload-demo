@@ -1,11 +1,11 @@
-const withPayload = require('../../../middleware/withPayload')
-const convertPayloadJSONBody = require('../../../middleware/convertPayloadJSONBody')
-const fileUpload = require('../../../middleware/fileUpload')
-const withDataLoader = require('../../../middleware/dataLoader')
-const refresh = require('payload/dist/auth/operations/refresh').default
-const getExtractJWT = require('payload/dist/auth/getExtractJWT').default
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
-const withCookie = require('../../../middleware/cookie')
+import withPayload from '../../../middleware/withPayload'
+import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
+import fileUpload from '../../../middleware/fileUpload'
+import withDataLoader from '../../../middleware/dataLoader'
+import refresh from 'payload/dist/auth/operations/refresh'
+import getExtractJWT from 'payload/dist/auth/getExtractJWT'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
+import withCookie from '../../../middleware/cookie'
 
 async function handler(req, res) {
   try {
@@ -35,7 +35,13 @@ async function handler(req, res) {
   }
 }
 
-module.exports = withPayload(
+export const config = {
+  api: {
+    bodyParser: false,
+  }
+}
+
+export default withPayload(
   withDataLoader(
     fileUpload(
       convertPayloadJSONBody(

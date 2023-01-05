@@ -1,15 +1,13 @@
-const withPayload = require('../../../middleware/withPayload')
-const convertPayloadJSONBody = require('../../../middleware/convertPayloadJSONBody')
-const fileUpload = require('../../../middleware/fileUpload')
-const registerFirstUser = require('payload/dist/auth/operations/registerFirstUser').default
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
-const withCookies = require('../../../middleware/cookie')
-const withDataLoader = require('../../../middleware/dataLoader')
+import withPayload from '../../../middleware/withPayload'
+import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
+import fileUpload from '../../../middleware/fileUpload'
+import registerFirstUser from 'payload/dist/auth/operations/registerFirstUser'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
+import withCookies from '../../../middleware/cookie'
+import withDataLoader from '../../../middleware/dataLoader'
 
 async function handler(req, res) {
   try {
-    console.log(req.body)
-
     const firstUser = await registerFirstUser({
       req,
       res,
@@ -24,7 +22,13 @@ async function handler(req, res) {
   }
 }
 
-module.exports = withPayload(
+export const config = {
+  api: {
+    bodyParser: false,
+  }
+}
+
+export default withPayload(
   withDataLoader(
     fileUpload(
       withCookies(

@@ -1,9 +1,9 @@
-const withPayload = require('../../../middleware/withPayload')
-const httpStatus = require('http-status')
-const convertPayloadJSONBody = require('../../../middleware/convertPayloadJSONBody')
-const fileUpload = require('../../../middleware/fileUpload')
-const forgotPassword = require('payload/dist/auth/operations/forgotPassword').default
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
+import withPayload from '../../../middleware/withPayload'
+import httpStatus from 'http-status'
+import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
+import fileUpload from '../../../middleware/fileUpload'
+import forgotPassword from 'payload/dist/auth/operations/forgotPassword'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
 
 async function handler(req, res) {
   try {
@@ -27,7 +27,13 @@ async function handler(req, res) {
   }
 }
 
-module.exports = withPayload(
+export const config = {
+  api: {
+    bodyParser: false,
+  }
+}
+
+export default withPayload(
   fileUpload(
     convertPayloadJSONBody(
       handler

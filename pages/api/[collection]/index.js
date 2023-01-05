@@ -1,15 +1,15 @@
-const withPayload = require('../../../middleware/withPayload')
-const httpStatus = require('http-status')
-const NotFound = require('payload/dist/errors/NotFound').default
-const convertPayloadJSONBody = require('../../../middleware/convertPayloadJSONBody')
-const authenticate = require('../../../middleware/authenticate')
-const initializePassport = require('../../../middleware/initializePassport')
-const formatSuccessResponse = require('payload/dist/express/responses/formatSuccess').default
-const { getTranslation } = require('payload/dist/utilities/getTranslation')
-const i18n = require('../../../middleware/i18n')
-const fileUpload = require('../../../middleware/fileUpload')
-const withDataLoader = require('../../../middleware/dataLoader')
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
+import withPayload from '../../../middleware/withPayload'
+import httpStatus from 'http-status'
+import NotFound from 'payload/dist/errors/NotFound'
+import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
+import authenticate from '../../../middleware/authenticate'
+import initializePassport from '../../../middleware/initializePassport'
+import formatSuccessResponse from 'payload/dist/express/responses/formatSuccess'
+import { getTranslation } from 'payload/dist/utilities/getTranslation'
+import i18n from '../../../middleware/i18n'
+import fileUpload from '../../../middleware/fileUpload'
+import withDataLoader from '../../../middleware/dataLoader'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
 
 async function handler(req, res) {
   try {
@@ -66,7 +66,13 @@ async function handler(req, res) {
   return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t))
 }
 
-module.exports = withPayload(
+export const config = {
+  api: {
+    bodyParser: false,
+  }
+}
+
+export default withPayload(
   withDataLoader(
     fileUpload(
       convertPayloadJSONBody(

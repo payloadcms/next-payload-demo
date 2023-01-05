@@ -1,17 +1,17 @@
-const withPayload = require('../../../middleware/withPayload')
-const httpStatus = require('http-status')
-const NotFound = require('payload/dist/errors/NotFound').default
-const convertPayloadJSONBody = require('../../../middleware/convertPayloadJSONBody')
-const authenticate = require('../../../middleware/authenticate')
-const initializePassport = require('../../../middleware/initializePassport')
-const formatSuccessResponse = require('payload/dist/express/responses/formatSuccess').default
-const i18n = require('../../../middleware/i18n')
-const fileUpload = require('../../../middleware/fileUpload')
-const getErrorHandler = require('payload/dist/express/middleware/errorHandler').default
-const withDataLoader = require('../../../middleware/dataLoader')
-const findPreference = require('payload/dist/preferences/operations/findOne').default
-const updatePreference = require('payload/dist/preferences/operations/update').default
-const deletePreference = require('payload/dist/preferences/operations/delete').default
+import withPayload from '../../../middleware/withPayload'
+import httpStatus from 'http-status'
+import NotFound from 'payload/dist/errors/NotFound'
+import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
+import authenticate from '../../../middleware/authenticate'
+import initializePassport from '../../../middleware/initializePassport'
+import formatSuccessResponse from 'payload/dist/express/responses/formatSuccess'
+import i18n from '../../../middleware/i18n'
+import fileUpload from '../../../middleware/fileUpload'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
+import withDataLoader from '../../../middleware/dataLoader'
+import findPreference from 'payload/dist/preferences/operations/findOne'
+import updatePreference from 'payload/dist/preferences/operations/update'
+import deletePreference from 'payload/dist/preferences/operations/delete'
 
 async function handler(req, res) {
   try {
@@ -25,9 +25,9 @@ async function handler(req, res) {
           const result = await findPreference({
             req,
             user: req.user,
-            key: req.query.key,
+            key: req.query.id,
           });
-  
+
           return res.status(httpStatus.OK).json(result || { message: req.t('general:notFound'), value: null })
         }
   
@@ -35,7 +35,7 @@ async function handler(req, res) {
           const doc = await updatePreference({
             req,
             user: req.user,
-            key: req.query.key,
+            key: req.query.id,
             value: req.body.value || req.body,
           });
   
@@ -49,7 +49,7 @@ async function handler(req, res) {
           await deletePreference({
             req,
             user: req.user,
-            key: req.params.key,
+            key: req.query.id,
           });
       
           return res.status(httpStatus.OK).json({
@@ -124,7 +124,13 @@ async function handler(req, res) {
   return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t))
 }
 
-module.exports = withPayload(
+export const config = {
+  api: {
+    bodyParser: false,
+  }
+}
+
+export default withPayload(
   withDataLoader(
     fileUpload(
       convertPayloadJSONBody(
