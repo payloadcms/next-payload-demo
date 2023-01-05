@@ -11,18 +11,18 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "rootDir": "src",
+    "rootDir": "payload",
     "jsx": "preserve",
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "incremental": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noEmit": false // Next.js sets this to true, but we need to set it to false
   },
   "include": [
-    "src"
+    "payload"
   ],
   "exclude": [
     "node_modules",
