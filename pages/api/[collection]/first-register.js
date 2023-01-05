@@ -8,8 +8,6 @@ import withDataLoader from '../../../middleware/dataLoader'
 
 async function handler(req, res) {
   try {
-    console.log(req.body)
-
     const firstUser = await registerFirstUser({
       req,
       res,

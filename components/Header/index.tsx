@@ -1,7 +1,7 @@
 import { ModalToggler } from '@faceless-ui/modal';
 import Link from 'next/link';
 import React from 'react';
-import { MainMenu } from '../../../payload/payload-types';
+import { MainMenu } from '../../payload-types';
 import { Gutter } from '../Gutter';
 import { MenuIcon } from '../icons/Menu';
 import { CMSLink } from '../Link';

@@ -1,6 +1,7 @@
+import React from 'react';
 import { Modal } from "@faceless-ui/modal";
 import { HeaderBar } from ".";
-import { MainMenu } from "../../../payload/payload-types"
+import { MainMenu } from "../../payload-types"
 import { Gutter } from "../Gutter";
 import { CMSLink } from "../Link";
 

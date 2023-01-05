@@ -1,6 +1,6 @@
 import { Cell, Grid } from '@faceless-ui/css-grid';
 import React from 'react';
-import { Page } from '../../../../payload/payload-types';
+import { Page } from '../../../payload-types';
 import { Gutter } from '../../Gutter';
 import { CMSLink } from '../../Link';
 import { Media } from '../../Media';

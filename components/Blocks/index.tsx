@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Page } from '../../../payload/payload-types';
+import { Page } from '../../payload-types';
 import { toKebabCase } from '../../utilities/toKebabCase';
 import { BackgroundColor } from '../BackgroundColor';
 import { VerticalPaddingOptions } from '../VerticalPadding';

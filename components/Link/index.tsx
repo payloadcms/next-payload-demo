@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Page } from '../../../payload/payload-types';
+import { Page } from '../../payload-types';
 import { Button } from '../Button';
 
 type CMSLinkType = {

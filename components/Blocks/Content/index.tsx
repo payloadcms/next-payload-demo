@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Cell } from '@faceless-ui/css-grid'
-import { Page } from '../../../../payload/payload-types';
+import { Page } from '../../../payload-types';
 import RichText from '../../RichText';
 import { Gutter } from '../../Gutter';
 import { CMSLink } from '../../Link';
@@ -80,6 +80,8 @@ const Columns: React.FC<Props> = ({
       )
     }
   }
+  
+  return null
 }
 
 export const ContentBlock: React.FC<Props> = (props) => {

@@ -1,7 +1,7 @@
 import { LINK_FIELDS } from "./link";
 
 export const CALL_TO_ACTION = `
-...on CalltoAction {
+...on Cta {
   blockType
   ctaBackgroundColor
   richText
@@ -39,13 +39,6 @@ export const MEDIA_BLOCK = `
   blockType
   mediaBlockBackgroundColor
   position
-  media {
-    mimeType
-    filename
-    width
-    height
-    alt
-  }
   caption
 }
 `

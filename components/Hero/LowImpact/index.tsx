@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cell, Grid } from '@faceless-ui/css-grid';
-import { Page } from '../../../../payload/payload-types';
+import { Page } from '../../../payload-types';
 import { Gutter } from '../../Gutter';
 import RichText from '../../RichText';
 import { VerticalPadding } from '../../VerticalPadding';

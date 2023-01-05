@@ -24,14 +24,6 @@ export const PAGE = gql`
           links {
             link ${LINK_FIELDS()}
           }
-          media {
-            url
-            filename
-            alt
-            mimeType
-            width
-            height
-          }
         }
         layout {
           ${CALL_TO_ACTION}
