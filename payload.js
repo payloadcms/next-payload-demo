@@ -1,7 +1,7 @@
 const payload = require('payload')
+const swcRegister = require('@swc/register')
 const path = require('path')
 const fs = require('fs')
-require('payload/config')
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -20,10 +20,10 @@ module.exports = async function getPayload() {
   }
 
   if (!cached.promise) {
-    const file = path.resolve(process.cwd(), './dist/payload.config.js');
-    // Need to read config file to force Vercel to include it in output
-    fs.readFileSync(file, 'utf8');
-
+    if (process.env.NODE_ENV === 'production') {
+      require('./dist/payload.config.js')
+    }
+    
     cached.promise = payload.initAsync({
       local: true,
       mongoURL: process.env.MONGODB_URI,

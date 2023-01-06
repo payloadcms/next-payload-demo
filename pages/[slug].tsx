@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: params?.slug || 'home',
     }
   });
-  
+
   const page = pages.docs[0];
 
   const mainMenu = await payload.findGlobal({
