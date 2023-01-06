@@ -14,15 +14,15 @@ if (!cached) {
 }
 
 module.exports = async function getPayload() {
+  const file = path.resolve(process.cwd(), './dist/payload.config.js');
+  // Need to read config file to force Vercel to include it in output
+  fs.readFileSync(file, 'utf8');
+  
   if (cached.payload) {
     return cached.payload
   }
 
   if (!cached.promise) {
-    const file = path.resolve(process.cwd(), './dist/payload.config.js');
-    // Need to read config file to force Vercel to include it in output
-    fs.readFileSync(file, 'utf8');
-
     cached.promise = payload.initAsync({
       local: true,
       mongoURL: process.env.MONGODB_URI,
