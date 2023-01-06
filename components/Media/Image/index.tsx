@@ -24,7 +24,7 @@ export const Image: React.FC<Props> = (props) => {
   let width: number | undefined;
   let height: number | undefined;
   let alt = altFromProps;
-  let src: StaticImageData | string = srcFromProps;
+  let src: StaticImageData | string = srcFromProps || '';
 
   if (!src && resource && typeof resource !== 'string') {
     const {
@@ -40,7 +40,7 @@ export const Image: React.FC<Props> = (props) => {
 
     let filename = fullFilename;
 
-    src = `${process.env.NEXT_PUBLIC_APP_URL}/media/${filename}`
+    src = `https://${process.env.NEXT_PUBLIC_S3_ENDPOINT}/${process.env.NEXT_PUBLIC_S3_BUCKET}/${filename}`
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
