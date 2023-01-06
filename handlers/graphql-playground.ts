@@ -10,6 +10,6 @@ async function handler(req, res) {
   })(req, res)
 }
 
-module.exports = withPayload(
+export default withPayload(
   handler
 )

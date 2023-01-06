@@ -10,7 +10,7 @@ async function handler(req, res) {
   return res.status(200).json(result)
 }
 
-module.exports = withPayload(
+export default withPayload(
   withDataLoader(
     initializePassport(
       authenticate(

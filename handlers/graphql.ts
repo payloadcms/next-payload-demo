@@ -27,7 +27,7 @@ async function handler(req, res) {
   return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t))
 }
 
-module.exports = withPayload(
+export defualt withPayload(
   withDataLoader(
     i18n(
       initializePassport(
