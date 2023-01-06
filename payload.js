@@ -6,9 +6,9 @@ let initializedPayload = null;
 
 module.exports = function getPayload() {
   if (!initializedPayload) {
-    const file = path.resolve(process.cwd(), './dist/payload.config.js');
+    const distFolder = path.resolve(process.cwd(), './dist');
     // Need to read config file to force Vercel to include it in output
-    fs.readFileSync(file, 'utf8');
+    fs.readdirSync(distFolder);
     
     payload.init({
       local: true,
