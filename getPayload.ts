@@ -24,7 +24,6 @@ async function getPayload() {
       local: true,
       mongoURL: process.env.MONGODB_URI as string,
       secret: process.env.PAYLOAD_SECRET as string,
-      // @ts-ignore
       config,
     }).then(() => payload)
   }

@@ -78,7 +78,7 @@ async function handler(req, res) {
         const autosave = req.query.autosave === 'true';
 
         const doc = await req.payload.update({
-          req,
+          user: req.user,
           collection: req.query.collection,
           id: req.query.id,
           data: req.body,
@@ -102,7 +102,7 @@ async function handler(req, res) {
 
       case 'DELETE': {
         const doc = await req.payload.delete({
-          req,
+          user: req.user,
           collection: req.query.collection,
           id: req.query.id,
           depth: parseInt(String(req.query.depth), 10),
