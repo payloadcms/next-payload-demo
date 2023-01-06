@@ -45,7 +45,6 @@ async function handler(req, res) {
           draft: req.query.draft === 'true',
           overrideAccess: false,
         })
-        console.log(result, page)
   
         return res.status(200).json(result)
       }

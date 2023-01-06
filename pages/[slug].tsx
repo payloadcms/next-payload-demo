@@ -1,6 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import React from 'react';
 import Blocks from '../components/Blocks';
+import { Gutter } from '../components/Gutter';
 import { Hero } from '../components/Hero';
 import type { MainMenu, Page } from '../payload-types';
 import getPayload from '../payload.js';
@@ -11,17 +12,29 @@ const PageTemplate: React.FC<{
   preview?: boolean
 }> = (props) => {
   const {
-    page: {
-      hero,
-      layout,
-    },
+    page
   } = props;
 
+  if (page) {
+    const {
+      hero,
+      layout,
+    } = page;
+
+    return (
+      <React.Fragment>
+        <Hero {...hero} />
+        <Blocks blocks={layout} />
+      </React.Fragment>
+    )
+  }
+
   return (
-    <React.Fragment>
-      <Hero {...hero} />
-      <Blocks blocks={layout} />
-    </React.Fragment>
+    <Gutter>
+      <p>
+        Payload + Vercel
+      </p>
+    </Gutter>
   )
 }
 

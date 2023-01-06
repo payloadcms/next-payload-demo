@@ -3,6 +3,12 @@ import { PayloadMeUser, PayloadAdminBarProps, PayloadAdminBar } from 'payload-ad
 import { Gutter } from '../Gutter';
 import classes from './index.module.scss'
 
+const Title: React.FC = () => (
+  <span>
+    Payload + Vercel
+  </span>
+)
+
 export const AdminBar: React.FC<{
   adminBarProps: PayloadAdminBarProps
 }> = (props) => {
@@ -30,6 +36,7 @@ export const AdminBar: React.FC<{
             logo: classes.logo,
             controls: classes.controls,
           }}
+          logo={<Title />}
           style={{
             position: 'relative',
             zIndex: 'unset',
@@ -38,6 +45,6 @@ export const AdminBar: React.FC<{
           }}
         />
       </Gutter>
-    </div >
+    </div>
   )
 }
