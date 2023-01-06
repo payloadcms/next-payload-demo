@@ -4,7 +4,7 @@ import Blocks from '../components/Blocks';
 import { Gutter } from '../components/Gutter';
 import { Hero } from '../components/Hero';
 import type { MainMenu, Page } from '../payload-types';
-import getPayload from '../payload.js';
+import getPayload from '../getPayload';
 
 const PageTemplate: React.FC<{
   page: Page

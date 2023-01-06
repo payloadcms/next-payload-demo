@@ -1,7 +1,7 @@
 import fileUpload from 'express-fileupload'
 import express from 'express'
 
-const fileUpload = (handler) => (req, res) => {
+const withFileUpload = (handler) => (req, res) => {
   express.json(req.payload.config.express.json)(req, res, () =>
     fileUpload({
       parseNested: true,
@@ -12,4 +12,4 @@ const fileUpload = (handler) => (req, res) => {
 }
 
 
-export default fileUpload
+export default withFileUpload

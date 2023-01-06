@@ -16,7 +16,7 @@ async function handler(req, res) {
       data: req.body,
       depth: parseInt(String(req.query.depth), 10),
     })
-  
+
     return res.status(httpStatus.OK)
       .json({
         message: 'Auth Passed',
@@ -26,7 +26,7 @@ async function handler(req, res) {
       });
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 }
 

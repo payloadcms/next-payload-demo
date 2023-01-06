@@ -17,10 +17,10 @@ async function handler(req, res) {
       case 'GET': {
         let page;
         let limit;
-  
+
         if (typeof req.query.page === 'string') {
           const parsedPage = parseInt(req.query.page, 10);
-    
+
           if (!Number.isNaN(parsedPage)) {
             page = parsedPage;
           }
@@ -28,12 +28,12 @@ async function handler(req, res) {
 
         if (typeof req.query.limit === 'string') {
           const parsedLimit = parseInt(req.query.limit, 10);
-    
+
           if (!Number.isNaN(parsedLimit)) {
             limit = parsedLimit;
           }
         }
-  
+
         const result = await req.payload.find({
           req,
           collection: req.query.collection,
@@ -45,10 +45,10 @@ async function handler(req, res) {
           draft: req.query.draft === 'true',
           overrideAccess: false,
         })
-  
+
         return res.status(200).json(result)
       }
-  
+
       case 'POST': {
         const doc = await req.payload.create({
           req,
@@ -61,7 +61,7 @@ async function handler(req, res) {
         })
 
         const collection = req.payload.collections[req.query.collection]
-  
+
         return res.status(201).json({
           ...formatSuccessResponse(req.i18n.t('general:successfullyCreated', { label: getTranslation(collection.config.labels.singular, req.i18n) }), 'message'),
           doc,
@@ -70,7 +70,7 @@ async function handler(req, res) {
     }
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 
   return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t))

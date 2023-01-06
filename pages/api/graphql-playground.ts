@@ -7,9 +7,9 @@ async function handler(req, res) {
     settings: {
       'request.credentials': 'include'
     }
-  })(req, res)
+  })(req, res, () => null)
 }
 
-module.exports = withPayload(
+export default withPayload(
   handler
 )

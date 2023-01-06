@@ -53,7 +53,7 @@ async function handler(req, res) {
     }
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 
   return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t))

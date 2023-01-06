@@ -1,24 +1,32 @@
 import withPayload from '../../../middleware/withPayload'
+import httpStatus from 'http-status'
 import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
-import fileUpload from '../../../middleware/fileUpload'
-import registerFirstUser from 'payload/dist/auth/operations/registerFirstUser'
+import login from 'payload/dist/auth/operations/login'
 import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
-import withCookies from '../../../middleware/cookie'
+import withCookie from '../../../middleware/cookie'
+import fileUpload from '../../../middleware/fileUpload'
 import withDataLoader from '../../../middleware/dataLoader'
 
 async function handler(req, res) {
   try {
-    const firstUser = await registerFirstUser({
+    const result = await login({
       req,
       res,
       collection: req.payload.collections[req.query.collection],
       data: req.body,
+      depth: parseInt(String(req.query.depth), 10),
     })
-  
-    return res.status(200).json(firstUser)
+
+    return res.status(httpStatus.OK)
+      .json({
+        message: 'Auth Passed',
+        user: result.user,
+        token: result.token,
+        exp: result.exp,
+      });
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 }
 
@@ -31,8 +39,8 @@ export const config = {
 export default withPayload(
   withDataLoader(
     fileUpload(
-      withCookies(
-        convertPayloadJSONBody(
+      convertPayloadJSONBody(
+        withCookie(
           handler
         )
       )

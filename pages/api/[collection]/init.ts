@@ -7,4 +7,4 @@ async function handler(req, res) {
   return res.status(200).json({ initialized })
 }
 
-module.exports = withPayload(handler)
+export default withPayload(handler)

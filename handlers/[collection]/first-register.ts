@@ -14,11 +14,11 @@ async function handler(req, res) {
       collection: req.payload.collections[req.query.collection],
       data: req.body,
     })
-  
+
     return res.status(200).json(firstUser)
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 }
 

@@ -30,7 +30,7 @@ async function handler(req, res) {
 
           return res.status(httpStatus.OK).json(result || { message: req.t('general:notFound'), value: null })
         }
-  
+
         case 'POST': {
           const doc = await updatePreference({
             req,
@@ -38,27 +38,27 @@ async function handler(req, res) {
             key: req.query.id,
             value: req.body.value || req.body,
           });
-  
+
           return res.status(httpStatus.OK).json({
             ...formatSuccessResponse(req.t('general:updatedSuccessfully'), 'message'),
             doc,
           });
         }
-  
+
         case 'DELETE': {
           await deletePreference({
             req,
             user: req.user,
             key: req.query.id,
           });
-      
+
           return res.status(httpStatus.OK).json({
             ...formatSuccessResponse(req.t('deletedSuccessfully'), 'message'),
           });
         }
       }
     }
-    
+
     switch (req.method) {
       case 'GET': {
         const doc = await req.payload.findByID({
@@ -76,7 +76,7 @@ async function handler(req, res) {
       case 'PATCH': {
         const draft = req.query.draft === 'true';
         const autosave = req.query.autosave === 'true';
-    
+
         const doc = await req.payload.update({
           req,
           collection: req.query.collection,
@@ -88,12 +88,12 @@ async function handler(req, res) {
           overrideAccess: false,
           file: req.files && req.files.file ? req.files.file : undefined
         });
-    
+
         let message = req.t('general:updatedSuccessfully');
-    
+
         if (draft) message = req.t('versions:draftSavedSuccessfully');
         if (autosave) message = req.t('versions:autosavedSuccessfully');
-    
+
         return res.status(httpStatus.OK).json({
           ...formatSuccessResponse(message, 'message'),
           doc,
@@ -108,17 +108,17 @@ async function handler(req, res) {
           depth: parseInt(String(req.query.depth), 10),
           overrideAccess: false,
         });
-    
+
         if (!doc) {
           return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t));
         }
-    
+
         return res.status(httpStatus.OK).send(doc);
       }
     }
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 
   return res.status(httpStatus.NOT_FOUND).json(new NotFound(req.t))

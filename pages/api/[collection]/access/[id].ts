@@ -1,4 +1,4 @@
-import { docAccess } from 'payload/dist/globals/operations/docAccess'
+import { docAccess } from 'payload/dist/collections/operations/docAccess'
 import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
 import authenticate from '../../../../middleware/authenticate'
 import initializePassport from '../../../../middleware/initializePassport'
@@ -6,21 +6,23 @@ import withPayload from '../../../../middleware/withPayload'
 import withDataLoader from '../../../../middleware/dataLoader'
 
 async function handler(req, res) {
-  const globalConfig = req.payload.globals.config.find(global => global.slug === req.query.global)
 
   try {
-    const globalAccessResult = await docAccess({
-      req,
-      globalConfig,
+    const docAccessResult = await docAccess({
+      id: req.query.id,
+      req: {
+        ...req,
+        collection: req.payload.collections[req.query.collection],
+      }
     })
-    return res.status(200).json(globalAccessResult)
+    return res.status(200).json(docAccessResult)
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 }
 
-module.exports = withPayload(
+export default withPayload(
   withDataLoader(
     initializePassport(
       authenticate(

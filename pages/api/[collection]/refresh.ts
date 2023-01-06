@@ -1,32 +1,37 @@
 import withPayload from '../../../middleware/withPayload'
-import httpStatus from 'http-status'
 import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
-import login from 'payload/dist/auth/operations/login'
-import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
-import withCookie from '../../../middleware/cookie'
 import fileUpload from '../../../middleware/fileUpload'
 import withDataLoader from '../../../middleware/dataLoader'
+import refresh from 'payload/dist/auth/operations/refresh'
+import getExtractJWT from 'payload/dist/auth/getExtractJWT'
+import getErrorHandler from 'payload/dist/express/middleware/errorHandler'
+import withCookie from '../../../middleware/cookie'
 
 async function handler(req, res) {
   try {
-    const result = await login({
+    let token;
+
+    const extractJWT = getExtractJWT(req.payload.config);
+    token = extractJWT(req);
+
+    if (req.body.token) {
+      token = req.body.token;
+    }
+
+    const result = await refresh({
       req,
       res,
       collection: req.payload.collections[req.query.collection],
-      data: req.body,
-      depth: parseInt(String(req.query.depth), 10),
-    })
-  
-    return res.status(httpStatus.OK)
-      .json({
-        message: 'Auth Passed',
-        user: result.user,
-        token: result.token,
-        exp: result.exp,
-      });
+      token,
+    });
+
+    return res.status(200).json({
+      message: 'Token refresh successful',
+      ...result,
+    });
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 }
 

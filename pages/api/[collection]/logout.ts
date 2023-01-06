@@ -1,3 +1,4 @@
+import httpStatus from 'http-status'
 import withPayload from '../../../middleware/withPayload'
 import convertPayloadJSONBody from '../../../middleware/convertPayloadJSONBody'
 import initializePassport from '../../../middleware/initializePassport'
@@ -17,11 +18,11 @@ async function handler(req, res) {
     return res.status(httpStatus.OK).json({ message });
   } catch (error) {
     const errorHandler = getErrorHandler(req.payload.config, req.payload.logger)
-    return errorHandler(error, req, res);
+    return errorHandler(error, req, res, () => null);
   }
 }
 
-module.exports = withPayload(
+export default withPayload(
   convertPayloadJSONBody(
     initializePassport(
       authenticate(
