@@ -1,6 +1,7 @@
 const payload = require('payload')
 const path = require('path')
 const fs = require('fs')
+require('payload/config')
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -20,10 +21,8 @@ module.exports = async function getPayload() {
 
   if (!cached.promise) {
     const file = path.resolve(process.cwd(), './dist/payload.config.js');
-
-    if (fs.existsSync(file)) {
-      require(file)
-    }
+    // Need to read config file to force Vercel to include it in output
+    fs.readFileSync(file, 'utf8');
 
     cached.promise = payload.initAsync({
       local: true,
