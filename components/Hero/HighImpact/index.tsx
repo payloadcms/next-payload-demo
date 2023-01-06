@@ -17,7 +17,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ richText, media, links 
         </Cell>
       </Grid>
       <div className={classes.media}>
-        {Array.isArray(links) && (
+        {Array.isArray(links) && links.length > 0 && (
           <ul className={classes.links}>
             {links.map(({ link }, i) => {
               return (
