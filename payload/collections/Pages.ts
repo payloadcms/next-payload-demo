@@ -5,6 +5,7 @@ import { Content } from '../blocks/Content';
 import { MediaBlock } from '../blocks/Media';
 import { hero } from '../fields/hero';
 import { slugField } from '../fields/slug';
+import { regenerateStaticPage } from '../utilities/regenerateStaticPage';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -21,6 +22,11 @@ export const Pages: CollectionConfig = {
   },
   access: {
     read: publishedOnly,
+  },
+  hooks: {
+    afterChange: [
+      regenerateStaticPage
+    ]
   },
   fields: [
     {

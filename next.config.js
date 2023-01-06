@@ -6,7 +6,7 @@ const nextConfig = {
     domains: [
       'localhost',
       'https://nextjs-vercel.payloadcms.com',
-      process.env.NEXT_PUBLIC_CMS_URL
+      process.env.NEXT_PUBLIC_APP_URL
     ],
   },
   rewrites: async () => [

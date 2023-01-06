@@ -40,7 +40,7 @@ export const Image: React.FC<Props> = (props) => {
 
     let filename = fullFilename;
 
-    src = `${process.env.NEXT_PUBLIC_CMS_URL}/media/${filename}`
+    src = `${process.env.NEXT_PUBLIC_APP_URL}/media/${filename}`
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
