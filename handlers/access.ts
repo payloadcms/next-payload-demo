@@ -11,7 +11,7 @@ async function handler(req, res) {
   return res.status(200).json(accessResult)
 }
 
-module.exports = withPayload(
+export default withPayload(
   initializePassport(
     authenticate(
       handler

@@ -20,7 +20,7 @@ async function handler(req, res) {
   }
 }
 
-module.exports = withPayload(
+export default withPayload(
   withDataLoader(
     initializePassport(
       authenticate(
