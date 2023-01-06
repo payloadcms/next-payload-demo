@@ -1,7 +1,7 @@
 import payload from 'payload'
 
 // Need to statically import config to get Next to pick up on it
-import config from './payload/payload.config.js'
+import config from './payload/payload.config'
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
