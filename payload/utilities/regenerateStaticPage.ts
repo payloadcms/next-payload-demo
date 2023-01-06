@@ -1,7 +1,11 @@
 import { AfterChangeHook } from 'payload/dist/collections/config/types';
 
 export const regenerateStaticPage: AfterChangeHook<any> = async ({ req: { payload }, doc }) => {
-  const path = `/${doc.slug}`;
+  let path = `/${doc.slug}`;
+
+  if (path === '/home') {
+    path = '/'
+  }
 
   try {
     const res = await fetch(`${process.env.PAYLOAD_PUBLIC_CMS_URL}/api/regenerate?secret=${process.env.PAYLOAD_PRIVATE_REGENERATION_SECRET}&path=${path}`);
