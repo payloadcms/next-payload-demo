@@ -2,7 +2,6 @@
   "name": "payload-vercel-functions",
   "description": "Payload deployed as Vercel functions",
   "version": "1.0.0",
-  "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -10,9 +9,8 @@
     "lint": "next lint",
     "build:next": "next build",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=payload/payload.config.ts payload build",
-    "build:server": "tsc",
     "copy:build": "node build.js ./pages/api",
-    "build": "yarn copyfiles && yarn build:payload && yarn build:server && yarn copy:build && yarn build:next",
+    "build": "yarn copyfiles && yarn build:payload && yarn copy:build && yarn build:next",
     "copyfiles": "copyfiles -u 1 \"payload/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=payload/payload.config.ts payload generate:types",
     "generate:graphQLSchema": "PAYLOAD_CONFIG_PATH=payload/payload.config.ts payload generate:graphQLSchema"
