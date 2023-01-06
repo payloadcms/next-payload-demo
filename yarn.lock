@@ -5771,10 +5771,10 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.5.tgz#dff1045531a6979740ff1029008acdec57d4356e"
   integrity sha512-oMEpa/+Agqe/8RL9PyvD6+Ruif9gi5hQuAmoUHsuR5pjgxCFQQRXYa9cfxsNorlyHk7HB5FUJDJSXlDQpyHsIQ==
 
-payload@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-1.5.3.tgz#8999ae7d1441cb06c70f65bdcc04b332b99c1fd5"
-  integrity sha512-JhKzHC98j+8nVvMu23Dzz+3tKdJ508fw3QF0fDpqmDB82rWDZPkIszHAe/LcIUiWKq8nLvfYGPlUouFpgtK9uQ==
+payload@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.npmjs.org/payload/-/payload-1.5.4.tgz#bf15cfa758c5c8b2f73656f7e1c60035e5042020"
+  integrity sha512-Oo2HgTl+kGzyiU+wHT0NHHMpJWUYysRh2kTyZ2ejF/6IC5+bBJ4H47EBr+4dGItCJ3Z9GD2fns1pnKFGcYGkEQ==
   dependencies:
     "@date-io/date-fns" "^2.10.6"
     "@dnd-kit/core" "^6.0.5"
