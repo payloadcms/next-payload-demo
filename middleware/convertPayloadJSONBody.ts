@@ -1,4 +1,4 @@
-module.exports = (handler) => (req, res) => {
+const convertPayloadJSONBody = (handler) => (req, res) => {
   if (req.body && req.body._payload) {
     const payloadJSON = JSON.parse(req.body._payload)
     req.body = {
@@ -11,3 +11,5 @@ module.exports = (handler) => (req, res) => {
 
   handler(req, res)
 }
+
+export default convertPayloadJSONBody

@@ -1,6 +1,6 @@
 import authenticate from 'payload/dist/express/middleware/authenticate'
 
-module.exports = (handler) => (req, res) => {
+const authMiddleware = (handler) => (req, res) => {
   // Need to backfill req.get -
   // it's relied on within payload auth to retrieve auth headers
   req.get = (headerName) => req.headers[headerName.toLowerCase()]
@@ -9,3 +9,5 @@ module.exports = (handler) => (req, res) => {
     handler(req, res)
   )
 }
+
+export default authMiddleware

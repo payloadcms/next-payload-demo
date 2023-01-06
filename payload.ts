@@ -1,10 +1,7 @@
-const payload = require('payload')
-const swcRegister = require('@swc/register')
-const path = require('path')
-const fs = require('fs')
+import payload from 'payload'
 
 // Need to statically import config to get Next to pick up on it
-const config = require('./dist/payload.config.js')
+import config from './payload/payload.config.js'
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -17,7 +14,7 @@ if (!cached) {
   cached = global.payload = { payload: null, promise: null }
 }
 
-module.exports = async function getPayload() {
+async function getPayload() {
   if (cached.payload) {
     return cached.payload
   }
@@ -25,8 +22,8 @@ module.exports = async function getPayload() {
   if (!cached.promise) {
     cached.promise = payload.initAsync({
       local: true,
-      mongoURL: process.env.MONGODB_URI,
-      secret: process.env.PAYLOAD_SECRET,
+      mongoURL: process.env.MONGODB_URI as string,
+      secret: process.env.PAYLOAD_SECRET as string,
     }).then(() => payload)
   }
 
@@ -39,3 +36,5 @@ module.exports = async function getPayload() {
 
   return cached.payload
 }
+
+export default getPayload

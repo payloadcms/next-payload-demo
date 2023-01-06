@@ -1,13 +1,15 @@
 import fileUpload from 'express-fileupload'
 import express from 'express'
 
-module.exports = (handler) => (req, res) => {
+const fileUpload = (handler) => (req, res) => {
   express.json(req.payload.config.express.json)(req, res, () =>
     fileUpload({
       parseNested: true,
       ...req.payload.config.upload,
-    })(req, res, () =>
-      handler(req, res)
-    )
+      //@ts-ignore
+    })(req, res, () => handler(req, res))
   )
 }
+
+
+export default fileUpload
