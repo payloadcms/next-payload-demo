@@ -3,6 +3,9 @@ const swcRegister = require('@swc/register')
 const path = require('path')
 const fs = require('fs')
 
+// Need to statically import config to get Next to pick up on it
+const config = require('./dist/payload.config.js')
+
 /**
  * Global is used here to maintain a cached connection across hot reloads
  * in development. This prevents connections growing exponentially
@@ -20,10 +23,6 @@ module.exports = async function getPayload() {
   }
 
   if (!cached.promise) {
-    if (process.env.NODE_ENV === 'production') {
-      require('./dist/payload.config.js')
-    }
-    
     cached.promise = payload.initAsync({
       local: true,
       mongoURL: process.env.MONGODB_URI,
