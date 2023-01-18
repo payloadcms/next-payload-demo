@@ -5,15 +5,28 @@ import { Content } from '../blocks/Content';
 import { MediaBlock } from '../blocks/Media';
 import { hero } from '../fields/hero';
 import { slugField } from '../fields/slug';
+import { regenerateStaticPage } from '../utilities/regenerateStaticPage';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
+    preview: (doc, { locale }) => {
+      if (doc?.slug) {
+        return `${process.env.PAYLOAD_PUBLIC_CMS_URL}/${doc.slug}${locale ? `?locale=${locale}` : ''}`;
+      }
+
+      return null;
+    },
   },
   access: {
     read: publishedOnly,
+  },
+  hooks: {
+    afterChange: [
+      regenerateStaticPage
+    ]
   },
   fields: [
     {

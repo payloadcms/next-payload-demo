@@ -44,7 +44,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pages = await payload.find({
     collection: 'pages',
     where: {
-      slug: params?.slug || 'home',
+      slug: {
+        equals: params?.slug || 'home',
+      },
     }
   });
 

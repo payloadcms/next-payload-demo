@@ -9,7 +9,6 @@ import RichText from '../../RichText';
 import classes from './index.module.scss';
 
 export const HighImpactHero: React.FC<Page['hero']> = ({ richText, media, links }) => {
-
   return (
     <Gutter className={classes.hero}>
       <Grid>
@@ -18,7 +17,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ richText, media, links 
         </Cell>
       </Grid>
       <div className={classes.media}>
-        {Array.isArray(links) && (
+        {Array.isArray(links) && links.length > 0 && (
           <ul className={classes.links}>
             {links.map(({ link }, i) => {
               return (

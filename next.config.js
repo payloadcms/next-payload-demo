@@ -6,7 +6,8 @@ const nextConfig = {
     domains: [
       'localhost',
       'https://nextjs-vercel.payloadcms.com',
-      process.env.NEXT_PUBLIC_CMS_URL
+      process.env.NEXT_PUBLIC_APP_URL,
+      process.env.NEXT_PUBLIC_S3_ENDPOINT
     ],
   },
   rewrites: async () => [
@@ -18,7 +19,20 @@ const nextConfig = {
       "source": "/admin/:path*",
       "destination": "/admin/index.html"
     }
-  ]
+  ],
+  async headers() {
+    return [
+      {
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex',
+          },
+        ],
+        source: '/:path*'
+      }
+    ]
+  },
 }
 
 module.exports = nextConfig

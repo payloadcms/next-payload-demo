@@ -28,7 +28,7 @@ export const AdminBar: React.FC<{
       <Gutter className={classes.blockContainer} >
         <PayloadAdminBar
           {...adminBarProps}
-          cmsURL={process.env.NEXT_PUBLIC_CMS_URL}
+          cmsURL={process.env.NEXT_PUBLIC_APP_URL}
           onAuthChange={setUser}
           className={classes.payloadAdminBar}
           classNames={{
