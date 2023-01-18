@@ -1625,6 +1625,15 @@
   dependencies:
     tslib "^2.4.0"
 
+"@swc/register@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.npmjs.org/@swc/register/-/register-0.1.10.tgz#74a20b7559669e03479b05e9e5c6d1524d4d92a2"
+  integrity sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    pirates "^4.0.1"
+    source-map-support "^0.5.13"
+
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@tokenizer/token/-/token-0.3.0.tgz#fe98a93fe789247e998c75e74e9c7c63217aa276"
@@ -4955,6 +4964,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
+
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
@@ -5752,10 +5766,10 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.5.tgz#dff1045531a6979740ff1029008acdec57d4356e"
   integrity sha512-oMEpa/+Agqe/8RL9PyvD6+Ruif9gi5hQuAmoUHsuR5pjgxCFQQRXYa9cfxsNorlyHk7HB5FUJDJSXlDQpyHsIQ==
 
-payload@1.5.10-canary.0:
-  version "1.5.10-canary.0"
-  resolved "https://registry.npmjs.org/payload/-/payload-1.5.10-canary.0.tgz#23b3b9997fb3c26e3f3224dcd4f894bd2fc78eed"
-  integrity sha512-ojB2eBe07F+ZtNkE7QlGGGQRsQ+AHQlTlC6MBg3eKWROD9rVf25Ewn8Wl1Jhr2CqHYE8Tk66IqKt6z1E2C5YKg==
+payload@1.5.11-canary.0:
+  version "1.5.11-canary.0"
+  resolved "https://registry.npmjs.org/payload/-/payload-1.5.11-canary.0.tgz#33a6ef89e193d950e3de41411c8a98780c3c4aca"
+  integrity sha512-OegE7oP1Hxw34X2d72yqBFGnurW2uUAiPSg2EJ/Bvrp+0zcR416C6PM5+94EP4Sos5ZTEzTaFd0BUJ/Ns2F+cQ==
   dependencies:
     "@date-io/date-fns" "^2.10.6"
     "@dnd-kit/core" "^6.0.5"
@@ -5765,6 +5779,7 @@ payload@1.5.10-canary.0:
     "@faceless-ui/window-info" "^2.0.2"
     "@monaco-editor/react" "^4.4.6"
     "@swc/core" "^1.3.24"
+    "@swc/register" "^0.1.10"
     body-parser "^1.19.0"
     bson-objectid "^2.0.1"
     compression "^1.7.4"
@@ -5931,6 +5946,11 @@ pino@^8.8.0:
     safe-stable-stringify "^2.3.1"
     sonic-boom "^3.1.0"
     thread-stream "^2.0.0"
+
+pirates@^4.0.1:
+  version "4.0.5"
+  resolved "https://registry.npmjs.org/pirates/-/pirates-4.0.5.tgz#feec352ea5c3268fb23a37c702ab1699f35a5f3b"
+  integrity sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==
 
 pkg-dir@^4.2.0:
   version "4.2.0"
@@ -7339,7 +7359,7 @@ source-list-map@^2.0.0:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
-source-map-support@^0.5.17, source-map-support@~0.5.20:
+source-map-support@^0.5.13, source-map-support@^0.5.17, source-map-support@~0.5.20:
   version "0.5.21"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.21.tgz#04fe7c7f9e1ed2d662233c28cb2b35b9f63f6e4f"
   integrity sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==
