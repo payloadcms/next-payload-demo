@@ -1,41 +1,15 @@
-import payload from 'payload'
+import { getPayload as getPayloadLocal } from 'payload/dist/payload'
 
 // Need to statically import config to get Next to pick up on it
 import config from './payload/payload.config'
 
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
- */
-let cached = global.payload
-
-if (!cached) {
-  cached = global.payload = { payload: null, promise: null }
+const getPayload = async () => {
+  return getPayloadLocal({
+    mongoURL: process.env.MONGODB_URI as string,
+    secret: process.env.PAYLOAD_SECRET as string,
+    config,
+  })
 }
 
-async function getPayload() {
-  if (cached.payload) {
-    return cached.payload
-  }
-
-  if (!cached.promise) {
-    cached.promise = payload.initAsync({
-      local: true,
-      mongoURL: process.env.MONGODB_URI as string,
-      secret: process.env.PAYLOAD_SECRET as string,
-      config,
-    }).then(() => payload)
-  }
-
-  try {
-    cached.payload = await cached.promise
-  } catch (e) {
-    cached.promise = null
-    throw e
-  }
-
-  return cached.payload
-}
 
 export default getPayload
