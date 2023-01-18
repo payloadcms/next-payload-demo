@@ -19,7 +19,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false // Next.js sets this to true, but we need to set it to false
+    "paths": {
+      "payload/generated-types": ["./payload-types.ts"]
+    }
   },
   "include": [
     "payload"
