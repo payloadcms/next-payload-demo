@@ -1,14 +1,7 @@
-import { SanitizedConfig } from 'payload/config'
 import { getPayload as getPayloadLocal } from 'payload/dist/payload'
 
-let config: SanitizedConfig
-
-if (process.env.NODE_ENV === 'production') {
-  // Need to statically import config to get Next to pick up on it
-  config = require('./dist/payload.config')
-} else {
-  config = require('./payload/payload.config')
-}
+// Need to statically import config to get Next to pick up on it
+import config from './payload/payload.config'
 
 const getPayload = async () => {
   return getPayloadLocal({
