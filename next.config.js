@@ -33,6 +33,7 @@ const nextConfig = {
       }
     ]
   },
+  transpilePackages: ['payload', 'mongoose']
 }
 
 module.exports = nextConfig
