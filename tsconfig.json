@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "rootDir": "payload",
-    "jsx": "preserve",
+    "jsx": "react",
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "module": "esnext",
