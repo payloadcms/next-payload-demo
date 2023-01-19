@@ -8,6 +8,7 @@ const getPayload = async () => {
     mongoURL: process.env.MONGODB_URI as string,
     secret: process.env.PAYLOAD_SECRET as string,
     config,
+    loggerOptions: {}
   })
 }
 
