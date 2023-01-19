@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "rootDir": "payload",
-    "jsx": "react",
+    "jsx": "preserve",
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "module": "esnext",
@@ -20,8 +20,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "payload/generated-types": ["./payload-types.ts"]
-    }
+      "payload/generated-types": [
+        "./payload-types.ts"
+      ]
+    },
+    "noEmit": true
   },
   "include": [
     "payload"
