@@ -5777,10 +5777,10 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.5.tgz#dff1045531a6979740ff1029008acdec57d4356e"
   integrity sha512-oMEpa/+Agqe/8RL9PyvD6+Ruif9gi5hQuAmoUHsuR5pjgxCFQQRXYa9cfxsNorlyHk7HB5FUJDJSXlDQpyHsIQ==
 
-payload@1.5.13-canary.0:
-  version "1.5.13-canary.0"
-  resolved "https://registry.npmjs.org/payload/-/payload-1.5.13-canary.0.tgz#0e62e9d5ccd8e2b4381d8ed6a72e34ae49298bf7"
-  integrity sha512-DQFjbMcaEbuUzIUqdqi8HXNwBT+fOCMZ7AkSd8gocIOxR341jQqA5Y0SeJRqg/qzydd/b6T8Et5UdZ3DMtfIoA==
+payload@1.5.14-canary.0:
+  version "1.5.14-canary.0"
+  resolved "https://registry.npmjs.org/payload/-/payload-1.5.14-canary.0.tgz#dd65e3f51c5630eaea77f787ab03055df16d43e7"
+  integrity sha512-2MFKASDok4Asl6E5hx3CSsUVtIIHdZAXLSI3szdolwawqJNAiGR7f1luHz0oJM+BieBr+s0W8ui364NX2j+L6A==
   dependencies:
     "@date-io/date-fns" "^2.16.0"
     "@dnd-kit/core" "^6.0.7"
