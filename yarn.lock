@@ -5918,7 +5918,7 @@ pino-abstract-transport@^1.0.0, pino-abstract-transport@v1.0.0:
 
 pino-pretty@^9.1.1:
   version "9.1.1"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-9.1.1.tgz#e7d64c1db98266ca428ab56567b844ba780cd0e1"
+  resolved "https://registry.npmjs.org/pino-pretty/-/pino-pretty-9.1.1.tgz#e7d64c1db98266ca428ab56567b844ba780cd0e1"
   integrity sha512-iJrnjgR4FWQIXZkUF48oNgoRI9BpyMhaEmihonHeCnZ6F50ZHAS4YGfGBT/ZVNsPmd+hzkIPGzjKdY08+/yAXw==
   dependencies:
     colorette "^2.0.7"
