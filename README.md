@@ -56,7 +56,7 @@ We need to dynamically inject our required properties into an existing `vercel.j
 
 We could easily export this repo's functionality into an NPM module so that this all happens easily and behind the scenes.
 
-##### Converting `/handlers` folder to TypeScript
+##### Converting `/handlers/api` folder to TypeScript
 
 For maintainability, we should refactor the project to TypeScript but this is just a nice-to-have.
 
