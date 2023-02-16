@@ -1,5 +1,7 @@
+const { withPayload } = require('@payloadcms/next-payload')
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withPayload({
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -10,30 +12,6 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_S3_ENDPOINT
     ],
   },
-  rewrites: async () => [
-    {
-      "source": "/admin",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/admin/:path*",
-      "destination": "/admin/index.html"
-    }
-  ],
-  async headers() {
-    return [
-      {
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex',
-          },
-        ],
-        source: '/:path*'
-      }
-    ]
-  },
-  transpilePackages: ['payload', 'mongoose']
-}
+})
 
 module.exports = nextConfig

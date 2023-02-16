@@ -26,9 +26,6 @@
     },
     "noEmit": true
   },
-  "include": [
-    "payload"
-  ],
   "exclude": [
     "node_modules",
     "dist",
@@ -36,5 +33,10 @@
   ],
   "ts-node": {
     "transpileOnly": true
-  }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

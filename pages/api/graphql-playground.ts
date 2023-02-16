@@ -1,5 +1,5 @@
 import graphQLPlayground from 'graphql-playground-middleware-express'
-import withPayload from '../../middleware/withPayload'
+import withPayload from '@payloadcms/next-payload/middleware/withPayload'
 
 async function handler(req, res) {
   return graphQLPlayground({

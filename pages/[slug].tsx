@@ -1,10 +1,10 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import React from 'react';
+import getPayload from '../payload';
 import Blocks from '../components/Blocks';
 import { Gutter } from '../components/Gutter';
 import { Hero } from '../components/Hero';
 import type { MainMenu, Page } from '../payload-types';
-import getPayload from '../getPayload';
 
 const PageTemplate: React.FC<{
   page: Page

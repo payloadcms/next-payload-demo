@@ -9,7 +9,7 @@ import { Media } from './collections/Media';
 
 const adapter = s3Adapter({
   config: {
-    endpoint: process.env.S3_ENDPOINT,
+    endpoint: process.env.NEXT_PUBLIC_S3_ENDPOINT,
     region: process.env.S3_REGION,
     forcePathStyle: true,
     credentials: {
@@ -17,7 +17,7 @@ const adapter = s3Adapter({
       secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
     }
   },
-  bucket: process.env.S3_BUCKET,
+  bucket: process.env.NEXT_PUBLIC_S3_BUCKET,
 })
 
 export default buildConfig({
