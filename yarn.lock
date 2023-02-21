@@ -4107,6 +4107,11 @@ get-tsconfig@^4.2.0:
   resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.3.0.tgz#4c26fae115d1050e836aea65d6fe56b507ee249b"
   integrity sha512-YCcF28IqSay3fqpIu5y3Krg/utCBHBeoflkZyHj/QcqI2nrLPC3ZegS9CmIo+hJb8K7aiGsuUl7PwWVjNG2HQQ==
 
+get-tsconfig@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.4.0.tgz#64eee64596668a81b8fce18403f94f245ee0d4e5"
+  integrity sha512-0Gdjo/9+FzsYhXCEFueo2aY1z1tpXrxWZzP7k8ul9qt1U5o8rYJwTJYmaeHdrVosYIVYkOy2iwCJ9FdpocJhPQ==
+
 github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
@@ -4866,10 +4871,10 @@ json-parse-even-better-errors@^2.3.0, json-parse-even-better-errors@^2.3.1:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
-json-schema-to-typescript@^11.0.2:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/json-schema-to-typescript/-/json-schema-to-typescript-11.0.2.tgz#80348391abb4ffb75daf312380c2f01c552ffba8"
-  integrity sha512-XRyeXBJeo/IH4eTP5D1ptX78vCvH86nMDt2k3AxO28C3uYWEDmy4mgPyMpb8bLJ/pJMElOGuQbnKR5Y6NSh3QQ==
+json-schema-to-typescript@11.0.3:
+  version "11.0.3"
+  resolved "https://registry.npmjs.org/json-schema-to-typescript/-/json-schema-to-typescript-11.0.3.tgz#9b401c2b78329959f1c4c4e0639a6bdcf6a6ed77"
+  integrity sha512-EaEE9Y4VZ8b9jW5zce5a9L3+p4C9AqgIRHbNVDJahfMnoKzcd4sDb98BLxLdQhJEuRAXyKLg4H66NKm80W8ilg==
   dependencies:
     "@bcherny/json-schema-ref-parser" "9.0.9"
     "@types/json-schema" "^7.0.11"
@@ -5850,10 +5855,10 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.5.tgz#dff1045531a6979740ff1029008acdec57d4356e"
   integrity sha512-oMEpa/+Agqe/8RL9PyvD6+Ruif9gi5hQuAmoUHsuR5pjgxCFQQRXYa9cfxsNorlyHk7HB5FUJDJSXlDQpyHsIQ==
 
-payload@^1.6.12:
-  version "1.6.12"
-  resolved "https://registry.npmjs.org/payload/-/payload-1.6.12.tgz#b2f4e9ffb2c100c07b4e48a055ea8ecf98e52091"
-  integrity sha512-+R+FRNnmewCDMGD20L5fCh13jlge73R12b2fGzxJT3w1u7J52WSuV4f66htI1DitL+Z/h0dNdXJEqelpNjWf7Q==
+payload@^1.6.15:
+  version "1.6.15"
+  resolved "https://registry.npmjs.org/payload/-/payload-1.6.15.tgz#ac82bff84787cd76c971455626bc1e5aa4b7141b"
+  integrity sha512-os0n7vVWhAdUAWSEDeGOi/R2/C3dxosKx4tQb+3di0rwansEdXAkeZ1K/WQwCaMeOL3AQBQygrDt3ThrrSxVYg==
   dependencies:
     "@date-io/date-fns" "^2.16.0"
     "@dnd-kit/core" "^6.0.7"
@@ -5886,6 +5891,7 @@ payload@^1.6.12:
     find-up "4.1.0"
     flatley "^5.2.0"
     fs-extra "^10.1.0"
+    get-tsconfig "^4.4.0"
     graphql "^16.6.0"
     graphql-playground-middleware-express "^1.7.23"
     graphql-query-complexity "^0.12.0"
@@ -5900,7 +5906,7 @@ payload@^1.6.12:
     is-plain-object "^5.0.0"
     isomorphic-fetch "^3.0.0"
     joi "^17.7.0"
-    json-schema-to-typescript "^11.0.2"
+    json-schema-to-typescript "11.0.3"
     jsonwebtoken "^9.0.0"
     jwt-decode "^3.1.2"
     md5 "^2.3.0"
