@@ -5,31 +5,16 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
-export interface Config {}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "main-menu".
- */
-export interface MainMenu {
-  id: string;
-  navItems: {
-    link: {
-      type?: 'reference' | 'custom';
-      newTab?: boolean;
-      reference: {
-        value: string | Page;
-        relationTo: 'pages';
-      };
-      url: string;
-      label: string;
-    };
-    id?: string;
-  }[];
+export interface Config {
+  collections: {
+    pages: Page;
+    users: User;
+    media: Media;
+  };
+  globals: {
+    'main-menu': MainMenu;
+  };
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
 export interface Page {
   id: string;
   title: string;
@@ -149,18 +134,9 @@ export interface Page {
       }
   )[];
   slug?: string;
-  meta: {
-    title?: string;
-    description?: string;
-  };
-  _status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
 export interface Media {
   id: string;
   alt: string;
@@ -173,10 +149,6 @@ export interface Media {
   createdAt: string;
   updatedAt: string;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
 export interface User {
   id: string;
   email?: string;
@@ -186,4 +158,21 @@ export interface User {
   lockUntil?: string;
   createdAt: string;
   updatedAt: string;
+  password?: string;
+}
+export interface MainMenu {
+  id: string;
+  navItems: {
+    link: {
+      type?: 'reference' | 'custom';
+      newTab?: boolean;
+      reference: {
+        value: string | Page;
+        relationTo: 'pages';
+      };
+      url: string;
+      label: string;
+    };
+    id?: string;
+  }[];
 }

@@ -1,4 +1,5 @@
 const { withPayload } = require('@payloadcms/next-payload')
+const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withPayload({
@@ -12,6 +13,8 @@ const nextConfig = withPayload({
       process.env.NEXT_PUBLIC_S3_ENDPOINT
     ],
   },
+}, {
+  configPath: path.resolve(__dirname, './payload/payload.config.ts'),
 })
 
 module.exports = nextConfig

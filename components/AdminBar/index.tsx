@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { PayloadMeUser, PayloadAdminBarProps, PayloadAdminBar } from 'payload-admin-bar';
 import { Gutter } from '../Gutter';

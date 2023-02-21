@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Page } from '../../payload-types';
 import { HighImpactHero } from './HighImpact';

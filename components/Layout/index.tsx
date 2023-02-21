@@ -1,33 +1,23 @@
-import { AppProps } from 'next/app';
+'use client';
+
 import { GridProvider } from '@faceless-ui/css-grid';
 import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
 import React, { useCallback } from 'react';
-import { Header } from '../components/Header';
-import { MainMenu } from '../payload-types';
-import cssVariables from '../cssVariables';
+import { Header } from '../Header';
+import { MainMenu } from '../../payload-types';
+import cssVariables from '../../cssVariables';
 import { useRouter } from 'next/dist/client/router';
-import { AdminBar } from '../components/AdminBar';
-import '../css/app.scss';
+import '../../css/app.scss';
 
-const PayloadApp = (
-  appProps: AppProps<{
-    mainMenu: MainMenu
-    id: string
-    preview: boolean
-    collection: string
-  }>
-): React.ReactElement => {
-  const {
-    Component,
-    pageProps,
-  } = appProps;
+type Props = {
+  mainMenu: MainMenu
+  children: React.ReactNode
+}
 
-  const {
-    collection,
-    id,
-    preview,
-  } = pageProps;
-
+const Layout = ({
+  mainMenu,
+  children,
+}: Props): React.ReactElement => {
   const router = useRouter();
 
   const onPreviewExit = useCallback(() => {
@@ -62,16 +52,8 @@ const PayloadApp = (
         }}
       >
         <ModalProvider transTime={0} zIndex="var(--modal-z-index)">
-          <AdminBar
-            adminBarProps={{
-              collection,
-              id,
-              preview,
-              onPreviewExit,
-            }}
-          />         
-          <Header mainMenu={pageProps.mainMenu} />
-          <Component {...pageProps} />
+          <Header mainMenu={mainMenu} />
+          {children}
           <ModalContainer />
         </ModalProvider>
       </GridProvider>
@@ -79,4 +61,4 @@ const PayloadApp = (
   )
 }
 
-export default PayloadApp
+export default Layout

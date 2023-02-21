@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useContext, createContext } from 'react';
 import { VerticalPadding, VerticalPaddingOptions } from '../VerticalPadding';
 import classes from './index.module.scss';

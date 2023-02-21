@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Fragment } from 'react';
 import { Page } from '../../payload-types';
 import { toKebabCase } from '../../utilities/toKebabCase';
