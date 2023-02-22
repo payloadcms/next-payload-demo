@@ -1,69 +1,84 @@
-# Payload Vercel Functions
+# Next + Payload Serverless
 
-This project is a proof-of-concept that outputs each of Payload's HTTP endpoints to a Vercel serverless function.
+> Warning - this package is in active development and is likely to change until it hits version 1.0.0. You should expect breaking changes and bugs if you attempt to use it right now.
 
-It uses a build script to do three things:
+This package contains a set of utilities to allow Payload to be deployed seamlessly, serverless, within an existing NextJS project. It adds the Payload admin UI into the NextJS `/app` folder and adds all Payload endpoints into the `pages/api` folder.
 
-1. Copy the Admin UI files to Vercel's `/public` folder
-2. Inject a `handler` for each of Payload's endpoints into the Vercel `/api` folder
-3. Set up a rewrite for sending all traffic from `/admin/*` to the admin UI `index.html` file
+To do so, this package exposes a few different helpers. To get started, follow the steps below:
 
-### Bugs / workarounds
+#### 1. Run `next-payload install`
 
-There are a few bugs / workarounds that we have had to work around:
+This script automatically adds all Payload endpoints to your NextJS project. To use it, add a script to your `package.json` like the following:
 
-#### Need to build BEFORE pushing to Vercel
-
-Unfortunately, we need to build _before_ we deploy to Vercel, because otherwise Vercel won't see our dynamically added `/api` handlers. They apparently need to be present on _push_, rather than be output during the build step.
-
-#### Cold starts
-
-Right now, cold starts are a little problematic because of the fact that we've split out each Payload endpoint into a separate Vercel function. This means that each endpoint will need to be cold-started. We could write a script that keeps each endpoint alive, alleviating the cold-start problem.
-
-#### Forcing Vercel to include Payload config files
-
-The only way we could figure out how to force Vercel to include Payload `/dist` files is to use `fs` to read the config in `payload.js`. If we simply access the config, Vercel will include the files. But if we do not, Vercel will not include any Payload files from `/dist`.
-
-We attempted to use the `includeFiles` Vercel config property, but the below `vercel.json` config did not work:
-
-```js
-{
-  "functions": {
-    "api/**/*.js": {
-      "includeFiles": "/dist/**/*"
-    }
-  }
-}
+```
+  "install:payload": "next-payload install",
 ```
 
-#### Route conflicts
+And then run `yarn install:payload` within your folder. You will see a bunch of new endpoints automatically injected into your Next `/pages` folder.
 
-Supposedly, handlers _without_ route parameters should take precedence over those with parameters, but unfortunately this is not working.
+#### 2. Ensure that the newly created `./payload.ts` file has accurate variables
 
-We would like to have a handler at `/api/_preferences/[key].js` but unfortunately it is not accessible, and our `/api/[collection]/[id].js` receives all the traffic meant to be sent to our preferences handler.
+This is a helper file that will allow you to initialize Payload, and then share it across all of your endpoints which is good for warm serverless functions and reusability. Create a file at the root of your project called `payload.ts`, with the following contents:
 
-## What's missing
+```ts
+import { getPayload } from "payload";
+import config from "./payload/payload.config";
 
-##### Versions
+const getInitializedPayload = async () => {
+  return getPayload({
+    // Make sure that your environment variables are filled out accordingly
+    mongoURL: process.env.MONGODB_URI as string,
+    secret: process.env.PAYLOAD_SECRET as string,
+    // Notice that we're passing our Payload config
+    config,
+  });
+};
 
-We have not handled any versions functionality, but that will just be more of the same.
+export default getInitializedPayload;
+```
 
-##### Dynamically writing to an existing `vercel.json`
+You'll notice that we are initializing Payload and passing it our Payload config. [The Payload config](https://payloadcms.com/docs/configuration/overview) is central to everything that Payload does.
 
-We need to dynamically inject our required properties into an existing `vercel.json` file in case it already exists. Should be very easy to do.
+A great side-effect of having this file located centrally at the root of your project is that you can now import it directly, elsewhere, to leverage the [Payload Local API](https://payloadcms.com/docs/local-api/overview#local-api). The Local API does not use REST or GraphQL, and runs directly on your server talking directly to your database, which saves massively on HTTP-induced latency.
 
-##### Abstracting into a `postbuild` step
+Here's an example of using the Local API within `getStaticProps`:
 
-We could easily export this repo's functionality into an NPM module so that this all happens easily and behind the scenes.
+```ts
+// Your newly created `payload.ts file
+import getPayload from "../payload";
 
-##### Converting `/handlers/api` folder to TypeScript
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const payload = await getPayload();
 
-For maintainability, we should refactor the project to TypeScript but this is just a nice-to-have.
+  const query = await payload.find({
+    collection: "pages",
+    where: {
+      slug: {
+        equals: params.slug,
+      },
+    },
+  });
 
-## Development
+  const page = pages.docs[0];
 
-To test / build with these handlers, follow the steps below:
+  return {
+    props: {
+      page: page,
+    },
+  };
+};
+```
 
-1. Run `cp .env.example .env` to create an `.env`
-1. Make sure you have a Mongo database accessible via the URL in your `.env`
-1. Run `vercel dev`
+#### 3. Install `withPayload`
+
+The last thing we need to do is wrap your Next config with `withPayload`. Payload needs to inject some requirements into your Next config in order to function properly. To install `withPayload`, you need to import it into your `next.config.js` file. Here's an example:
+
+```js
+const { withPayload } = require("@payloadcms/next-payload");
+
+module.exports = withPayload({
+  // your Next config here
+});
+```
+
+And then you're done. Have fun!
