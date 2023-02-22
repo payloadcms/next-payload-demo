@@ -10,6 +10,7 @@ To develop with this package locally, make sure you have the following required 
 
 1. MongoDB
 2. Node + NPM / Yarn
+3. An S3 bucket to store media
 
 ### Getting started
 
@@ -21,3 +22,7 @@ Follow the steps below to spin up a local dev environment:
 4. Run `yarn dev` to start up the dev server
 
 From there, you can visit your admin panel via navigating to `http://localhost:3000/admin`. Go ahead and start working!
+
+### Deploying to Vercel
+
+The only thing you need to do to deploy to Vercel is to ensure that you have a Mongo Atlas database connection string and an S3 bucket available. Fill out the same environment variables that are shown in the `.env.example` with your own values, and then you're good to go!
