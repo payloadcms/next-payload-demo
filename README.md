@@ -4,12 +4,16 @@
 
 This is a demo showing how to utilize `@payloadcms/next-payload` to deploy Payload serverlessly, in the same repo alongside of a NextJS app.
 
+### Developing locally
+
 To develop with this package locally, make sure you have the following required software:
 
 1. MongoDB
 2. Node + NPM / Yarn
 
-To get started, follow the steps below:
+### Getting started
+
+Follow the steps below to spin up a local dev environment:
 
 1. Clone the repo
 2. Run `yarn` or `npm install`
