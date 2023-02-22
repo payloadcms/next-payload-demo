@@ -1495,10 +1495,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@payloadcms/next-payload@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.0.8.tgz#1f2805f37dd0e9fee7da9123eee357f414f91d46"
-  integrity sha512-Tu88UEZjqMtFeDaUL/+Y52zqEE8KQYbAooPW2sOSRU2wjxVXmGbaIZr1ql68H2UCq8PZUSGxr5b7+8V/QzGCmg==
+"@payloadcms/next-payload@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.0.9.tgz#8fe2ccb86d47e37758ed758aa208a36185b08e15"
+  integrity sha512-XZuw7rafNyKvAaMGBgT+yfnijEAEeaqN184Cb68J5wPTpe/w3Jtb2fCjJNhjseVfwkPcLTpQIfkFzoriPC6ljA==
   dependencies:
     "@swc/core" "^1.3.35"
     "@swc/register" "^0.1.10"
