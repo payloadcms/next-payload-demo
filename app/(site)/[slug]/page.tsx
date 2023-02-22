@@ -1,4 +1,5 @@
 import React from 'react';
+import { notFound } from 'next/navigation'
 import getPayload from '../../../payload';
 import Blocks from '../../../components/Blocks';
 import { Hero } from '../../../components/Hero';
@@ -18,6 +19,8 @@ const Page = async ({ params: { slug } }) => {
 
   const page = pages.docs[0];
 
+  if (!page) return notFound()
+
   return (
     <React.Fragment>
       <AdminBar adminBarProps={{ collection: 'pages', id: page.id }} />
@@ -29,6 +32,7 @@ const Page = async ({ params: { slug } }) => {
 
 export async function generateStaticParams() {
   const payload = await getPayload();
+
   const pages = await payload.find({
     collection: 'pages',
     limit: 0,

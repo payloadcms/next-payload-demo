@@ -99,7 +99,7 @@ const link: LinkType = ({
     },
   ]
 
-  if (!disableLabel) {
+  if (!disableLabel && linkTypes[0]?.admin && linkTypes[1]?.admin) {
     linkTypes[0].admin.width = '50%';
     linkTypes[1].admin.width = '50%';
 

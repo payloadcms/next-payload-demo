@@ -88,7 +88,7 @@ const richText: RichText = (
       ],
     },
   },
-  overrides,
+  overrides || {},
 );
 
 export default richText;

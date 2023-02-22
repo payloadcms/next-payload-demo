@@ -13,12 +13,12 @@ type Leaf = {
     url: string
     alt: string
   }
-  children?: Children
+  children: Children
   url?: string
   [key: string]: unknown
 }
 
-const serialize = (children: Children): React.ReactElement[] => children.map((node, i) => {
+const serialize = (children: Children): React.ReactNode[] => children.map((node, i) => {
   if (Text.isText(node)) {
     let text = <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />;
 

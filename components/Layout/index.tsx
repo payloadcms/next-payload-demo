@@ -2,11 +2,10 @@
 
 import { GridProvider } from '@faceless-ui/css-grid';
 import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Header } from '../Header';
 import { MainMenu } from '../../payload-types';
 import cssVariables from '../../cssVariables';
-import { useRouter } from 'next/dist/client/router';
 import '../../css/app.scss';
 
 type Props = {
@@ -18,18 +17,6 @@ const Layout = ({
   mainMenu,
   children,
 }: Props): React.ReactElement => {
-  const router = useRouter();
-
-  const onPreviewExit = useCallback(() => {
-    const exit = async () => {
-      const exitReq = await fetch('/api/exit-preview');
-      if (exitReq.status === 200) {
-        router.reload();
-      }
-    }
-    exit();
-  }, [router])
-
   return (
     <React.Fragment>
       <GridProvider

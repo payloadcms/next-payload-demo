@@ -13,11 +13,11 @@ const adapter = s3Adapter({
     region: process.env.S3_REGION,
     forcePathStyle: true,
     credentials: {
-      accessKeyId: process.env.S3_ACCESS_KEY_ID,
-      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+      accessKeyId: process.env.S3_ACCESS_KEY_ID as string,
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY as string,
     }
   },
-  bucket: process.env.NEXT_PUBLIC_S3_BUCKET,
+  bucket: process.env.NEXT_PUBLIC_S3_BUCKET as string,
 })
 
 export default buildConfig({

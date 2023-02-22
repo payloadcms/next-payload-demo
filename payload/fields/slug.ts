@@ -19,5 +19,5 @@ export const slugField: Slug = (fieldToUse = 'title', overrides) => deepMerge<Fi
       ],
     },
   },
-  overrides,
+  overrides || {},
 );

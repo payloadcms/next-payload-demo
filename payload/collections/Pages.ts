@@ -17,7 +17,7 @@ export const Pages: CollectionConfig = {
         return `${process.env.PAYLOAD_PUBLIC_CMS_URL}/${doc.slug}${locale ? `?locale=${locale}` : ''}`;
       }
 
-      return null;
+      return '';
     },
   },
   access: {
