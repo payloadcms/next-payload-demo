@@ -4,6 +4,9 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = withPayload({
   reactStrictMode: true,
+  experimental: {
+    outputFileTracingExcludes: ['**swc/core**', '**swc/wasm**', '**webpack**']
+  },
   images: {
     domains: [
       'localhost',
