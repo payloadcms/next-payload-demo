@@ -6,7 +6,7 @@ const nextConfig = withPayload({
   reactStrictMode: true,
   experimental: {
     outputFileTracingExcludes: {
-      '**/**': ['**swc/core**', '**swc/wasm**', '**webpack**']
+      '**/**': ['node_modules/@swc/core-linux-x64-gnu', 'node_modules/@swc/core-linux-x64-musl']
     },
   },
   images: {
