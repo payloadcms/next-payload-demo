@@ -5,7 +5,11 @@ const path = require('path');
 const nextConfig = withPayload({
   reactStrictMode: true,
   experimental: {
-    outputFileTracingExcludes: ['**swc/core**', '**swc/wasm**', '**webpack**']
+    outputFileTracingExcludes: {
+      '**': '**swc/core**',
+      '**': '**swc/wasm**',
+      '**': '**webpack**'
+    },
   },
   images: {
     domains: [
