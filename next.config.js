@@ -4,7 +4,6 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = withPayload({
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     domains: [
       'localhost',
