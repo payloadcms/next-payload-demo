@@ -5,9 +5,9 @@ const path = require('path');
 const nextConfig = withPayload({
   reactStrictMode: true,
   experimental: {
-    outputFileTracingExcludes: {
-      '**/*': ['node_modules/@swc/core-linux-x64-gnu', 'node_modules/@swc/core-linux-x64-musl', 'node_modules/sharp', 'node_modules/webpack']
-    },
+    // outputFileTracingExcludes: {
+    //   '**/*': ['node_modules/@swc/core-linux-x64-gnu', 'node_modules/@swc/core-linux-x64-musl', 'node_modules/sharp', 'node_modules/webpack']
+    // },
   },
   images: {
     domains: [
