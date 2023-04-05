@@ -11,7 +11,7 @@ const nextConfig = withPayload(
           "node_modules/@swc/core-linux-x64-gnu",
           "node_modules/@swc/core-linux-x64-musl",
           "node_modules/@swc/wasm",
-          "node_modules/sharp",
+          "node_modules/sharp/vendor",
           "node_modules/webpack/lib",
           "node_modules/webpack/schemas",
         ],
