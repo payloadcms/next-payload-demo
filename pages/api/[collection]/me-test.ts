@@ -3,9 +3,7 @@ import withPayload from '@payloadcms/next-payload/middleware/withPayload'
 import withDataLoader from '@payloadcms/next-payload/middleware/dataLoader'
 
 async function handler(req, res) {
-  const collection = req.payload.collections[req.query.collection]
-  const result = await meOperation({ req, collection })
-  return res.status(200).json(result)
+  return res.status(200).json({ message: 'hi' })
 }
 
 export default withPayload(
