@@ -14,7 +14,7 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     preview: (doc, { locale }) => {
       if (doc?.slug) {
-        return `${process.env.PAYLOAD_PUBLIC_CMS_URL}/${doc.slug}${locale ? `?locale=${locale}` : ''}`;
+        return `/${doc.slug}${locale ? `?locale=${locale}` : ""}`;
       }
 
       return '';
