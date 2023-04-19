@@ -1490,13 +1490,14 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@payloadcms/next-payload@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.0.16.tgz#19e286745a4dcfb9a3b18422b7c257d809c48883"
-  integrity sha512-FiNHGihhHvX1Mvqj5XmlZF16dU/meMdlXNi2bHmSbfzT7OzHjddrrexsYv9KTplm+LRs0vM6Zy8Q6tnLOUYQzw==
+"@payloadcms/next-payload@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@payloadcms/next-payload/-/next-payload-0.0.17.tgz#aa3bc5c463aac011e68d1dbd986d6656d4ca2f1f"
+  integrity sha512-Iog55p6jRlO28tVVjSGMX/7pWLn3Ogfe9ZfYL3XVboYEvBUkVly4+KiyBPJqo1o2qGAKMtGLuuntMfGf4u1TyA==
   dependencies:
     "@swc/core" "^1.3.35"
     "@swc/register" "^0.1.10"
+    qs "^6.11.1"
     sass "^1.58.2"
     webpack-filter-warnings-plugin "^1.2.1"
 
@@ -6563,7 +6564,7 @@ qs@6.11.0:
   dependencies:
     side-channel "^1.0.4"
 
-qs@^6.11.0, qs@^6.9.1:
+qs@^6.11.0, qs@^6.11.1, qs@^6.9.1:
   version "6.11.1"
   resolved "https://registry.npmjs.org/qs/-/qs-6.11.1.tgz#6c29dff97f0c0060765911ba65cbc9764186109f"
   integrity sha512-0wsrzgTz/kAVIeuxSjnpGC56rzYtr6JT/2BwEvMaPhFIoYa1aGO8LbzuU1R0uUYQkLpWBTOj0l/CLAJB64J6nQ==
