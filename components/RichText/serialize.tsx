@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+// @ts-ignore - no types :(
 import escapeHTML from 'escape-html';
 import { Text } from 'slate';
 import { Label } from '../Label';

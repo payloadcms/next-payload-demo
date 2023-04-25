@@ -5,7 +5,7 @@ import Blocks from '../../../components/Blocks';
 import { Hero } from '../../../components/Hero';
 import { AdminBar } from '../../../components/AdminBar';
 
-const Page = async ({ params: { slug } }) => {
+const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const payload = await getPayloadClient();
 
   const pages = await payload.find({
@@ -38,7 +38,7 @@ export async function generateStaticParams() {
     limit: 0,
   })
 
-  return pages.docs.map(({ slug }) => ({ slug }))
+  return pages.docs.map(({ slug }: { slug: string }) => ({ slug }))
 }
 
 export default Page;

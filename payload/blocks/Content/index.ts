@@ -12,7 +12,7 @@ const columnFields: Field[] = [
   link({
     overrides: {
       admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink)
+        condition: (_: any, { enableLink }: { enableLink: boolean }) => Boolean(enableLink)
       }
     }
   })
