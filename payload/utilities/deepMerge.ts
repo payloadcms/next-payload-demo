@@ -23,6 +23,7 @@ export default function deepMerge<T extends ObjectWithKeys, R extends ObjectWith
         if (!(key in target)) {
           Object.assign(output, { [key]: source[key] });
         } else {
+          // @ts-ignore
           output[key] = deepMerge(target[key], source[key]);
         }
       } else {

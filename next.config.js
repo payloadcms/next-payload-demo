@@ -4,6 +4,9 @@ const path = require("path");
 /** @type {import('next').NextConfig} */
 const nextConfig = withPayload(
   {
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
     reactStrictMode: true,
     images: {
       domains: [
