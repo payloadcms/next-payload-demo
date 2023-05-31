@@ -1,5 +1,6 @@
 import { getPayload } from "payload/dist/payload";
 import config from './payload.config';
+import 'server-only';
 
 if (!process.env.MONGODB_URI) {
   throw new Error('MONGODB_URI environment variable is missing')
