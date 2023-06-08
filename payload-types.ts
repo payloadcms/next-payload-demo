@@ -71,7 +71,7 @@ export interface Page {
             [k: string]: unknown;
           }[];
           enableLink?: boolean;
-          link: {
+          link?: {
             type?: 'reference' | 'custom';
             newTab?: boolean;
             reference: {
@@ -83,12 +83,12 @@ export interface Page {
             appearance?: 'default' | 'primary' | 'secondary';
           };
         };
-        columnTwo: {
+        columnTwo?: {
           richText: {
             [k: string]: unknown;
           }[];
           enableLink?: boolean;
-          link: {
+          link?: {
             type?: 'reference' | 'custom';
             newTab?: boolean;
             reference: {
@@ -100,12 +100,12 @@ export interface Page {
             appearance?: 'default' | 'primary' | 'secondary';
           };
         };
-        columnThree: {
+        columnThree?: {
           richText: {
             [k: string]: unknown;
           }[];
           enableLink?: boolean;
-          link: {
+          link?: {
             type?: 'reference' | 'custom';
             newTab?: boolean;
             reference: {
@@ -134,30 +134,30 @@ export interface Page {
       }
   )[];
   slug?: string;
-  createdAt: string;
   updatedAt: string;
+  createdAt: string;
 }
 export interface Media {
   id: string;
   alt: string;
+  updatedAt: string;
+  createdAt: string;
   url?: string;
   filename?: string;
   mimeType?: string;
   filesize?: number;
   width?: number;
   height?: number;
-  createdAt: string;
-  updatedAt: string;
 }
 export interface User {
   id: string;
+  updatedAt: string;
+  createdAt: string;
   email?: string;
   resetPasswordToken?: string;
   resetPasswordExpiration?: string;
   loginAttempts?: number;
   lockUntil?: string;
-  createdAt: string;
-  updatedAt: string;
   password?: string;
 }
 export interface MainMenu {
@@ -175,4 +175,6 @@ export interface MainMenu {
     };
     id?: string;
   }[];
+  updatedAt?: string;
+  createdAt?: string;
 }

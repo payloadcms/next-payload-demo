@@ -46,9 +46,9 @@ const Columns: React.FC<Props> = ({
             )}
           </Cell>
           <Cell cols={col2Cols} colsM={4}>
-            <RichText content={columnTwo.richText} />
-            {columnTwo.enableLink && (
-              <CMSLink className={classes.link} {...columnTwo.link} />
+            <RichText content={columnTwo?.richText} />
+            {columnTwo?.enableLink && (
+              <CMSLink className={classes.link} {...columnTwo?.link} />
             )}
           </Cell>
         </React.Fragment>
@@ -65,14 +65,14 @@ const Columns: React.FC<Props> = ({
             )}
           </Cell>
           <Cell cols={4} colsM={4}>
-            <RichText content={columnTwo.richText} />
-            {columnTwo.enableLink && (
-              <CMSLink className={classes.link} {...columnTwo.link} />
+            <RichText content={columnTwo?.richText} />
+            {columnTwo?.enableLink && (
+              <CMSLink className={classes.link} {...columnTwo?.link} />
             )}
           </Cell>
           <Cell cols={4} colsM={4}>
-            <RichText content={columnThree.richText} />
-            {columnThree.enableLink && (
+            <RichText content={columnThree?.richText} />
+            {columnThree?.enableLink && (
               <CMSLink className={classes.link} {...columnThree.link} />
             )}
           </Cell>
