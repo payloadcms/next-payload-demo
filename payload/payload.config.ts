@@ -6,6 +6,7 @@ import { MainMenu } from './globals/MainMenu';
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
 import { Media } from './collections/Media';
+import seo from '@payloadcms/plugin-seo';
 
 const adapter = s3Adapter({
   config: {
@@ -45,6 +46,9 @@ export default buildConfig({
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
   plugins: [
+    seo({
+      collections: ['pages']
+    }),
     cloudStorage({
       collections: {
         'media': {
