@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Label } from 'payload/components/forms'
 import './index.scss'
