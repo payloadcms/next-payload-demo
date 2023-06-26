@@ -16,6 +16,9 @@ const nextConfig = withPayload(
         `${process.env.NEXT_PUBLIC_S3_ENDPOINT}`.replace("https://", ""),
       ],
     },
+    experimental: {
+      serverComponentsExternalPackages: ["mongoose", "payload"],
+    },
   },
   {
     configPath: path.resolve(__dirname, "./payload/payload.config.ts"),

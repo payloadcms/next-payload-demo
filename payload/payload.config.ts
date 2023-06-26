@@ -24,7 +24,16 @@ export default buildConfig({
   collections: [
     Pages,
     Users,
-    Media
+    Media,
+    {
+      slug: 'examples',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+        }
+      ]
+    }
   ],
   globals: [
     MainMenu,
