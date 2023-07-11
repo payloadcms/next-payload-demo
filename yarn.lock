@@ -5999,7 +5999,7 @@ payload-admin-bar@^1.0.5:
 
 payload@^1.11.1:
   version "1.11.1"
-  resolved "https://registry.npmjs.org/payload/-/payload-1.11.1.tgz#d0797226718461ff4044f7fabc30559296762371"
+  resolved "https://registry.yarnpkg.com/payload/-/payload-1.11.1.tgz#d0797226718461ff4044f7fabc30559296762371"
   integrity sha512-pvUjr5w44K5vgnCsP1JblbRKfJ1BmvIKyO9rYQXrHhQiUMuQs0iBqz7jMcW2oLbaR1BbG5e5jNDFO1X+1B+Nyg==
   dependencies:
     "@date-io/date-fns" "^2.16.0"
