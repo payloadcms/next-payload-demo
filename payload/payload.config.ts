@@ -1,5 +1,3 @@
-'use client'
-
 import { buildConfig } from 'payload/config';
 import path from 'path';
 import { Users } from './collections/Users';
