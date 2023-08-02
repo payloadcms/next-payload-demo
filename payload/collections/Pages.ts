@@ -6,6 +6,7 @@ import { MediaBlock } from '../blocks/Media';
 import { hero } from '../fields/hero';
 import { slugField } from '../fields/slug';
 import { regenerateStaticPage } from '../utilities/regenerateStaticPage';
+import { UIField } from '../components/UITest';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -61,5 +62,15 @@ export const Pages: CollectionConfig = {
       ]
     },
     slugField(),
+    {
+      name: 'uiTest',
+      type: 'ui',
+      admin: {
+        position: 'sidebar',
+        components: {
+          Field: UIField,
+        }
+      }
+    }
   ]
 }
