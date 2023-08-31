@@ -19,7 +19,7 @@ const nextConfig = withPayload(
     },
   },
   {
-    configPath: path.resolve(__dirname, "./payload/payload.config.ts"),
+    configPath: path.resolve(__dirname, "./payload/payload.config")
   }
 );
 
