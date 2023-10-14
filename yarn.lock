@@ -1784,10 +1784,10 @@
     prompts "2.4.2"
     to-snake-case "1.0.0"
 
-"@payloadcms/next-payload@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.1.2.tgz#f36ee813fd5dd2fa25a001a59f1da6a528731dee"
-  integrity sha512-dFe3cNjTzdaC79AyJBTBj98D5BB/9binEC952jXqZMkr+Xbx8HDXVmgBvwnaPgENPqBhCHyHI7Y4rOJcTnTWqA==
+"@payloadcms/next-payload@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.1.3.tgz#a69cd65f131101033f420c791123a57c74aa4458"
+  integrity sha512-5fvLqI58hIXU5mbfJPZrYqkaDpVUJDr0l7FuwHAdy8/YZX/ytkDjcdPav+//mmiYN1I5HMDLx5BhYNPMHVxg/A==
   dependencies:
     "@payloadcms/bundler-webpack" "^1.0.2"
     "@payloadcms/db-mongodb" "^1.0.3"
@@ -1845,10 +1845,10 @@
     react-i18next "11.18.6"
     ts-essentials "7.0.3"
 
-"@payloadcms/richtext-slate@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/@payloadcms/richtext-slate/-/richtext-slate-1.0.4.tgz#53b262bf0b7293bfd91ecaec11fc465a5dd9d2f6"
-  integrity sha512-sQfVIwBIgErUPkz7Jqv7aVckAlH7JH4qBHzGgcuOhWKpDm2T/uQS/06RDvl9ww0t8srGv9zYkDtPEfeg5ccx0g==
+"@payloadcms/richtext-slate@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/@payloadcms/richtext-slate/-/richtext-slate-1.0.5.tgz#17bbad9e16d0b527fe06ebf5cd3a6bd39260aa91"
+  integrity sha512-Ki6iPh4fI70RZ6FR56WWAQ7eQwGSSbBy7IOLxzVRXswW9QGtSZYQ+L6LA2CZtVa6E/NLZpXG7P3CjGmrvGyynQ==
   dependencies:
     "@faceless-ui/modal" "2.0.1"
     i18next "22.5.1"
@@ -7166,10 +7166,10 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.6.tgz#ca25e369a4f319c3d61ff3db4021c1c2fd9d0148"
   integrity sha512-hpQdOiPq4LpWTkbuAnvxDf5wQ2ysMp9kQt+X2U+FfvBwD1U6qoxJfmUymG1OjLlaZzCZ93FlOdTl4u4Z0/m/SA==
 
-payload@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/payload/-/payload-2.0.5.tgz#b121ff35c127c138bd0a83bbcaac66a5531a7c54"
-  integrity sha512-hVPbeYbjM7D8p2gkSdZmeZfheFvBEYObiz9iOWAHLv+N/BAToEONZkFgQoFdsmd87tEbBrJDblB8wKHt/PirOQ==
+payload@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/payload/-/payload-2.0.6.tgz#27ce75b9139d6e5281abaa6788f1871069a13060"
+  integrity sha512-4aR7zFqkcU6sAmqzxHv4a5kp/az3k/z5NzAl5iR33nBh3QngxpD4v32zgyo7rvLWBXWki4plij9aZoOr8NZTqw==
   dependencies:
     "@date-io/date-fns" "2.16.0"
     "@dnd-kit/core" "6.0.8"
