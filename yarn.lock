@@ -1797,10 +1797,10 @@
     sass "^1.58.2"
     webpack-filter-warnings-plugin "^1.2.1"
 
-"@payloadcms/plugin-cloud-storage@^1.0.14":
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-cloud-storage/-/plugin-cloud-storage-1.0.19.tgz#96d5239715909101552fefa1aeebf1c3ef97d5e3"
-  integrity sha512-D0sKZ9NQB0Wia42TE++GM3XyyZiqY/W5+1wvg4jLUegG6Nv4W8dpNnS9RcoLePfS/pbEXQ5t2krSU3HdV6s8Rw==
+"@payloadcms/plugin-cloud-storage@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/@payloadcms/plugin-cloud-storage/-/plugin-cloud-storage-1.1.1.tgz#823d0d8316ba11d2b212eec0778f6f6d282a8c0f"
+  integrity sha512-WFqfZcT7R1LD+FfKKKYNsJPDRE+0VlYEMxzGuPKeUQn9w9sqTy2UD01YCEl0Zcyuq8fD9mRUjeLitSo1aAUimQ==
   dependencies:
     range-parser "^1.2.1"
 
@@ -1845,10 +1845,10 @@
     react-i18next "11.18.6"
     ts-essentials "7.0.3"
 
-"@payloadcms/richtext-slate@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@payloadcms/richtext-slate/-/richtext-slate-1.0.2.tgz#bb3e00690f52aeb9d3e895c3e2c7c2dec6795fb6"
-  integrity sha512-TwOyYHmahfpmeRux7wtxA3k6juJqDmm3z/e6f1X7C9kIyWUR88T+YzMkFqt+Sm8pOjj7k0VNuV+uJMfy7opNmg==
+"@payloadcms/richtext-slate@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@payloadcms/richtext-slate/-/richtext-slate-1.0.4.tgz#53b262bf0b7293bfd91ecaec11fc465a5dd9d2f6"
+  integrity sha512-sQfVIwBIgErUPkz7Jqv7aVckAlH7JH4qBHzGgcuOhWKpDm2T/uQS/06RDvl9ww0t8srGv9zYkDtPEfeg5ccx0g==
   dependencies:
     "@faceless-ui/modal" "2.0.1"
     i18next "22.5.1"
@@ -5378,10 +5378,10 @@ graphql-type-json@0.3.2:
   resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.3.2.tgz#f53a851dbfe07bd1c8157d24150064baab41e115"
   integrity sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==
 
-graphql@16.7.1:
-  version "16.7.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.7.1.tgz#11475b74a7bff2aefd4691df52a0eca0abd9b642"
-  integrity sha512-DRYR9tf+UGU0KOsMcKAlXeFfX89UiiIZ0dRU3mR0yJfu6OjZqUcp68NnFLnqQU5RexygFoDy1EW+ccOYcPfmHg==
+graphql@16.8.1:
+  version "16.8.1"
+  resolved "https://registry.npmjs.org/graphql/-/graphql-16.8.1.tgz#1930a965bef1170603702acdb68aedd3f3cf6f07"
+  integrity sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==
 
 gzip-size@^6.0.0:
   version "6.0.0"
@@ -7166,10 +7166,10 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.6.tgz#ca25e369a4f319c3d61ff3db4021c1c2fd9d0148"
   integrity sha512-hpQdOiPq4LpWTkbuAnvxDf5wQ2ysMp9kQt+X2U+FfvBwD1U6qoxJfmUymG1OjLlaZzCZ93FlOdTl4u4Z0/m/SA==
 
-payload@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-2.0.4.tgz#e659f69d342789eab18dfe6d675218aad3796834"
-  integrity sha512-Eh75yw2xyDdir4Bfk3Gy6laJ4Q+FFvWkkRgGwJ1oDC60V6ztqMFLbejSdXNxLlfj800GYa9LwnXlFjUDV+2pmQ==
+payload@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/payload/-/payload-2.0.5.tgz#b121ff35c127c138bd0a83bbcaac66a5531a7c54"
+  integrity sha512-hVPbeYbjM7D8p2gkSdZmeZfheFvBEYObiz9iOWAHLv+N/BAToEONZkFgQoFdsmd87tEbBrJDblB8wKHt/PirOQ==
   dependencies:
     "@date-io/date-fns" "2.16.0"
     "@dnd-kit/core" "6.0.8"
@@ -7200,7 +7200,7 @@ payload@^2.0.4:
     flatley "5.2.0"
     fs-extra "10.1.0"
     get-tsconfig "4.6.2"
-    graphql "16.7.1"
+    graphql "16.8.1"
     graphql-http "1.21.0"
     graphql-playground-middleware-express "1.7.23"
     graphql-query-complexity "0.12.0"
