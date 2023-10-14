@@ -8,7 +8,7 @@ const nextConfig = withPayload(
       ignoreDuringBuilds: true,
     },
     reactStrictMode: true,
-    transpilePackages: ["@payloadcms/plugin-seo"],
+    transpilePackages: ["@payloadcms/plugin-seo", "@payloadcms/richtext-slate"],
     images: {
       domains: [
         "localhost",
