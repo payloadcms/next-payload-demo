@@ -22,7 +22,7 @@ export const Pages: CollectionConfig = {
     },
   },
   access: {
-    read: publishedOnly,
+    read: () => true,
   },
   hooks: {
     afterChange: [
