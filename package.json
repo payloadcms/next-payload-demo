@@ -21,7 +21,7 @@
     "@faceless-ui/modal": "^2.0.1",
     "@payloadcms/bundler-webpack": "^1.0.2",
     "@payloadcms/db-mongodb": "^1.0.3",
-    "@payloadcms/db-postgres": "^0.1.4",
+    "@payloadcms/db-postgres": "^0.1.6",
     "@payloadcms/next-payload": "^0.1.4",
     "@payloadcms/plugin-cloud-storage": "^1.1.1",
     "@payloadcms/plugin-seo": "^1.0.14-canary.0",
