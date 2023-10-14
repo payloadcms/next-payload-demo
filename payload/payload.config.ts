@@ -7,6 +7,9 @@ import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
 import { Media } from './collections/Media';
 import seo from '@payloadcms/plugin-seo';
+import { webpackBundler } from '@payloadcms/bundler-webpack';
+import { postgresAdapter } from '@payloadcms/db-postgres';
+import { slateEditor } from '@payloadcms/richtext-slate';
 
 const adapter = s3Adapter({
   config: {
@@ -22,6 +25,15 @@ const adapter = s3Adapter({
 })
 
 export default buildConfig({
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI
+    }
+  }),
+  editor: slateEditor({}),
+  admin: {
+    bundler: webpackBundler()
+  },
   collections: [
     Pages,
     Users,
