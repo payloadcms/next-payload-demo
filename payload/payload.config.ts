@@ -8,8 +8,8 @@ import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
 import { Media } from './collections/Media';
 import seo from '@payloadcms/plugin-seo';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
-// import { postgresAdapter } from '@payloadcms/db-postgres';
-import { mongooseAdapter } from '@payloadcms/db-mongodb';
+import { postgresAdapter } from '@payloadcms/db-postgres';
+// import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { slateEditor } from '@payloadcms/richtext-slate';
 
 const adapter = s3Adapter({
@@ -26,14 +26,14 @@ const adapter = s3Adapter({
 })
 
 export default buildConfig({
-  // db: postgresAdapter({
-  //   pool: {
-  //     connectionString: process.env.POSTGRES_URI
-  //   }
-  // }),
-  db: mongooseAdapter({
-    url: process.env.MONGODB_URI as string
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.POSTGRES_URI
+    }
   }),
+  // db: mongooseAdapter({
+  //   url: process.env.MONGODB_URI as string
+  // }),
   editor: slateEditor({}),
   admin: {
     bundler: webpackBundler()
