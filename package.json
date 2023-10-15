@@ -22,7 +22,7 @@
     "@payloadcms/bundler-webpack": "^1.0.2",
     "@payloadcms/db-mongodb": "^1.0.3",
     "@payloadcms/db-postgres": "^0.1.6",
-    "@payloadcms/next-payload": "^0.1.6",
+    "@payloadcms/next-payload": "^0.1.7",
     "@payloadcms/plugin-cloud-storage": "^1.1.1",
     "@payloadcms/plugin-seo": "^1.0.14-canary.0",
     "@payloadcms/richtext-lexical": "^0.1.5",
