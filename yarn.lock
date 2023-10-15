@@ -1784,10 +1784,10 @@
     prompts "2.4.2"
     to-snake-case "1.0.0"
 
-"@payloadcms/next-payload@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.1.5.tgz#b4b9d2e058fcfba7b26b9a0e60afe1656566368c"
-  integrity sha512-LsXmtud6ar0dxdR8AJCZi2/KA1z4tnRjpjZYYs6eKO6OuJvq9m9DhC2fdrshZLd8FkJE44lx8vnb2CFI7qxKUA==
+"@payloadcms/next-payload@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmjs.org/@payloadcms/next-payload/-/next-payload-0.1.6.tgz#0cc4c7181c058ce73619b2c3c0f36d5ccae1131f"
+  integrity sha512-c/on6+TEYUAFy9JZE8MgdtF3f+gfI98RgSqURN2prUPpc10PcAB3lLNr6AMqAR01g5GhPHsHxYzL6hZrAPgVEQ==
   dependencies:
     "@payloadcms/bundler-webpack" "^1.0.2"
     "@payloadcms/db-mongodb" "^1.0.3"

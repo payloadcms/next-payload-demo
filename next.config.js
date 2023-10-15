@@ -7,7 +7,6 @@ const nextConfig = withPayload(
     eslint: {
       ignoreDuringBuilds: true,
     },
-    reactStrictMode: true,
     transpilePackages: ["@payloadcms/plugin-seo"],
     images: {
       domains: [
