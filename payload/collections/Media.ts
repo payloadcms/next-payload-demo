@@ -5,7 +5,10 @@ export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
     // staticDir: path.resolve(__dirname, '../../media'),
-    staticDir: '/tmp'
+    staticDir: '/tmp',
+    formatOptions: {
+      format: 'jpeg',
+    },
   },
   access: {
     read: () => true,
