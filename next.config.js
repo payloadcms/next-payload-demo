@@ -22,4 +22,9 @@ const nextConfig = withPayload(
   }
 );
 
-module.exports = nextConfig;
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: true,
+});
+
+module.exports =
+  process.env.ANALYZE === "true" ? withBundleAnalyzer(nextConfig) : nextConfig;
