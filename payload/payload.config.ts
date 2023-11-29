@@ -82,9 +82,9 @@ export default buildConfig({
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
   plugins: [
-    seo({
-      collections: ['pages']
-    }),
+    // seo({
+    //   collections: ['pages']
+    // }),
     cloudStorage({
       collections: {
         'media': {
