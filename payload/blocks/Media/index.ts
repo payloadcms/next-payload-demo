@@ -1,4 +1,4 @@
-import { Block } from "payload/types";
+import type { Block } from "payload/types";
 import { backgroundColor } from "../../fields/backgroundColor";
 import { slateEditor } from "@payloadcms/richtext-slate";
 
