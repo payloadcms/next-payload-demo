@@ -1887,10 +1887,9 @@
     react-i18next "11.18.6"
     ts-essentials "7.0.3"
 
-"@payloadcms/richtext-slate@^1.2.0":
+"@payloadcms/richtext-slate@./payloadcms-richtext-slate-1.2.0.tgz":
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@payloadcms/richtext-slate/-/richtext-slate-1.2.0.tgz#c8569fb2ee6dbe513ecb739907cc0ac283771516"
-  integrity sha512-PpeU7xDXPidLF2k35lRkxcI2gQmH/NajiAkD8ql6s75QVg0tyscEIfBIyw1U1CD2AA2CefgmEge4O+VQ+JkajA==
+  resolved "./payloadcms-richtext-slate-1.2.0.tgz#27e08f84dee314b36223c232810d7df3996d05be"
   dependencies:
     "@faceless-ui/modal" "2.0.1"
     i18next "22.5.1"
@@ -7358,7 +7357,7 @@ payload-admin-bar@^1.0.5:
   resolved "https://registry.yarnpkg.com/payload-admin-bar/-/payload-admin-bar-1.0.6.tgz#ca25e369a4f319c3d61ff3db4021c1c2fd9d0148"
   integrity sha512-hpQdOiPq4LpWTkbuAnvxDf5wQ2ysMp9kQt+X2U+FfvBwD1U6qoxJfmUymG1OjLlaZzCZ93FlOdTl4u4Z0/m/SA==
 
-payload@^2.0.6:
+payload@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/payload/-/payload-2.2.2.tgz#0c31628cbae30a704dd893c3827592beaa200d78"
   integrity sha512-Bc8adkLKYet28ywAydKLALbw3HFL/qeqj4oCY+z1Bp179XpCMGyNhhW12fdozi9UKySNV4BkiULc1U+aMOL8eQ==
