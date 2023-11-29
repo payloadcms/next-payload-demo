@@ -1,10 +1,10 @@
 import { Block, Field } from "payload/types";
 import { backgroundColor } from "../../fields/backgroundColor";
 import link from "../../fields/link";
-import richText from "../../fields/richText";
+// import richText from "../../fields/richText";
 
 const columnFields: Field[] = [
-  richText(),
+  // richText(),
   {
     name: 'enableLink',
     type: 'checkbox',
