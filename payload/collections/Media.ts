@@ -1,10 +1,8 @@
-import { CollectionConfig } from 'payload/types';
-import path from 'path';
+import type { CollectionConfig } from 'payload/types';
 
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    // staticDir: path.resolve(__dirname, '../../media'),
     staticDir: '/tmp',
     formatOptions: {
       format: 'jpeg',
