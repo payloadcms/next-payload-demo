@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types';
-import { publishedOnly } from '../access/publishedOnly';
 import { CallToAction } from '../blocks/CallToAction';
 import { Content } from '../blocks/Content';
 import { MediaBlock } from '../blocks/Media';

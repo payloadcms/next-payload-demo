@@ -1,20 +1,18 @@
-import React from 'react';
+"use client";
 
-import './index.scss';
+import React from "react";
 
-const baseClass = 'rich-text-large-body';
+import "./index.scss";
+
+const baseClass = "rich-text-large-body";
 
 const LargeBodyElement: React.FC<{
-  attributes: any
-  element: any
-  children: React.ReactNode
+  attributes: any;
+  element: any;
+  children: React.ReactNode;
 }> = ({ attributes, children }) => (
-  <div
-    {...attributes}
-  >
-    <span className={baseClass}>
-      {children}
-    </span>
+  <div {...attributes}>
+    <span className={baseClass}>{children}</span>
   </div>
 );
 export default LargeBodyElement;
