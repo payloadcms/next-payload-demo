@@ -1,4 +1,4 @@
-import { AfterChangeHook } from 'payload/dist/collections/config/types';
+import type { AfterChangeHook } from 'payload/dist/collections/config/types';
 
 export const regenerateStaticPage: AfterChangeHook<any> = async ({ req: { payload }, doc }) => {
   let path = `/${doc.slug}`;

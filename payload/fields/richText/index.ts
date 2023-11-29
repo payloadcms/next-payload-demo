@@ -1,4 +1,4 @@
-import { RichTextField } from 'payload/dist/fields/config/types';
+import type { RichTextField } from 'payload/dist/fields/config/types';
 import type { AdapterArguments, RichTextElement, RichTextLeaf } from '@payloadcms/richtext-slate';
 import deepMerge from '../../utilities/deepMerge';
 import elements from './elements';

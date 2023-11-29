@@ -1,4 +1,4 @@
-import { CollectionConfig } from 'payload/types';
+import type { CollectionConfig } from 'payload/types';
 import { CallToAction } from '../blocks/CallToAction';
 import { Content } from '../blocks/Content';
 import { MediaBlock } from '../blocks/Media';

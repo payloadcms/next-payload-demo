@@ -11,7 +11,7 @@ import { webpackBundler } from '@payloadcms/bundler-webpack';
 // import { postgresAdapter } from '@payloadcms/db-postgres';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 // import { slateEditor } from '@payloadcms/richtext-slate';
-import { RichTextAdapter } from 'payload/types';
+import type { RichTextAdapter } from 'payload/types';
 
 const adapter = s3Adapter({
   config: {
