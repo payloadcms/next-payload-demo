@@ -1854,6 +1854,10 @@
   dependencies:
     range-parser "^1.2.1"
 
+"@payloadcms/plugin-seo@./payloadcms-plugin-seo-v1.0.15.tgz":
+  version "1.0.15"
+  resolved "./payloadcms-plugin-seo-v1.0.15.tgz#ac9dd9bfcba9ee2dcfac6e0d9add6808d2bd1033"
+
 "@payloadcms/plugin-seo@^1.0.14-canary.0":
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/@payloadcms/plugin-seo/-/plugin-seo-1.0.15.tgz#ca794897d1e8c3291a8dd74339b7f28f10bba815"
