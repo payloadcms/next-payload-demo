@@ -1,6 +1,6 @@
 import type { Block } from "payload/types";
 import { backgroundColor } from "../../fields/backgroundColor";
-import { slateEditor } from "@payloadcms/richtext-slate";
+// import { slateEditor } from "@payloadcms/richtext-slate";
 
 export const MediaBlock: Block = {
   slug: 'mediaBlock',
@@ -32,16 +32,16 @@ export const MediaBlock: Block = {
       relationTo: 'media',
       required: true,
     },
-    {
-      name: 'caption',
-      type: 'richText',
-      editor: slateEditor({
-        admin: {
-          elements: [
-            'link',
-          ]
-        }
-      })
-    }
+    // {
+    //   name: 'caption',
+    //   type: 'richText',
+    //   editor: slateEditor({
+    //     admin: {
+    //       elements: [
+    //         'link',
+    //       ]
+    //     }
+    //   })
+    // }
   ]
 }
