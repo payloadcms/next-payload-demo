@@ -1839,7 +1839,17 @@
 
 "@payloadcms/next-payload@./payloadcms-next-payload-v0.1.10.tgz":
   version "0.1.10"
-  resolved "./payloadcms-next-payload-v0.1.10.tgz#8b2ac58b370fb3ca2d31fb14bb825b82674289da"
+  resolved "./payloadcms-next-payload-v0.1.10.tgz#fc387003411b810008ea035c4ba0d655acae7da0"
+  dependencies:
+    "@swc/core" "^1.3.35"
+    "@swc/register" "^0.1.10"
+    qs "^6.11.1"
+    sass "^1.58.2"
+    webpack-filter-warnings-plugin "^1.2.1"
+
+"@payloadcms/next-payload@./payloadcms-next-payload-v0.1.11.tgz":
+  version "0.1.11"
+  resolved "./payloadcms-next-payload-v0.1.11.tgz#87a74a47c876d70007b00ecf5befaa8a374ac787"
   dependencies:
     "@swc/core" "^1.3.35"
     "@swc/register" "^0.1.10"

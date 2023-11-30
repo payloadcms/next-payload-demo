@@ -70,7 +70,7 @@ web_modules/
 
 # Output of 'npm pack'
 *.tgz
-!payloadcms-next-payload-v0.1.10.tgz
+!payloadcms-next-payload-v0.1.11.tgz
 !payloadcms-richtext-slate-1.2.0.tgz
 !payloadcms-plugin-seo-v1.0.15.tgz
 
