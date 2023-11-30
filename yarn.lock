@@ -1856,7 +1856,7 @@
 
 "@payloadcms/plugin-seo@./payloadcms-plugin-seo-v1.0.15.tgz":
   version "1.0.15"
-  resolved "./payloadcms-plugin-seo-v1.0.15.tgz#c6c8772773b4d6a46b1f46e17ac8741a9d72a85b"
+  resolved "./payloadcms-plugin-seo-v1.0.15.tgz#48a4fef581ac07af88716e0315b2e8d3c63c7baa"
 
 "@payloadcms/richtext-lexical@^0.1.5":
   version "0.1.17"
