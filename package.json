@@ -35,7 +35,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "next": "^14.0.4-canary.25",
-    "payload": "^2.2.2",
+    "payload": "./payload-2.2.2.tgz",
     "payload-admin-bar": "^1.0.5",
     "sass": "^1.58.2",
     "sass-loader": "^13.2.0"
