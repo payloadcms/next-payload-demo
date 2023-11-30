@@ -7357,7 +7357,7 @@ payload-admin-bar@^1.0.5:
 
 payload@./payload-2.2.2.tgz:
   version "2.2.2"
-  resolved "./payload-2.2.2.tgz#81cd2f8a02456ba27044856dbd9cce15a970987b"
+  resolved "./payload-2.2.2.tgz#0a968339fbedfd589ab3b9fb0b11c6c3e8c073f9"
   dependencies:
     "@date-io/date-fns" "2.16.0"
     "@dnd-kit/core" "6.0.8"
