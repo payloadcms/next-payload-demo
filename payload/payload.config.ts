@@ -10,8 +10,7 @@ import seo from '@payloadcms/plugin-seo';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
 // import { postgresAdapter } from '@payloadcms/db-postgres';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
-// import { slateEditor } from '@payloadcms/richtext-slate';
-import type { RichTextAdapter } from 'payload/types';
+import { slateEditor } from '@payloadcms/richtext-slate';
 
 const adapter = s3Adapter({
   config: {
@@ -26,25 +25,6 @@ const adapter = s3Adapter({
   bucket: process.env.NEXT_PUBLIC_S3_BUCKET as string,
 })
 
-export function emptyEditor(): RichTextAdapter<any, {}, {}> {
-  return {
-    CellComponent: () => null,
-    FieldComponent: () => null,
-    outputSchema: () => {
-      return {
-        items: {
-          type: 'object',
-        },
-        type: ['array'],
-      }
-    },
-    populationPromise() {
-      return null
-    },
-    validate: () => true,
-  }
-}
-
 export default buildConfig({
   // db: postgresAdapter({
   //   pool: {
@@ -54,7 +34,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI as string
   }),
-  editor: emptyEditor(),
+  editor: slateEditor({}),
   admin: {
     bundler: webpackBundler()
   },
@@ -82,9 +62,9 @@ export default buildConfig({
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
   plugins: [
-    // seo({
-    //   collections: ['pages']
-    // }),
+    seo({
+      collections: ['pages']
+    }),
     cloudStorage({
       collections: {
         'media': {
