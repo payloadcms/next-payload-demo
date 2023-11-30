@@ -1837,19 +1837,9 @@
     prompts "2.4.2"
     to-snake-case "1.0.0"
 
-"@payloadcms/next-payload@./payloadcms-next-payload-v0.1.10.tgz":
-  version "0.1.10"
-  resolved "./payloadcms-next-payload-v0.1.10.tgz#fc387003411b810008ea035c4ba0d655acae7da0"
-  dependencies:
-    "@swc/core" "^1.3.35"
-    "@swc/register" "^0.1.10"
-    qs "^6.11.1"
-    sass "^1.58.2"
-    webpack-filter-warnings-plugin "^1.2.1"
-
 "@payloadcms/next-payload@./payloadcms-next-payload-v0.1.11.tgz":
   version "0.1.11"
-  resolved "./payloadcms-next-payload-v0.1.11.tgz#87a74a47c876d70007b00ecf5befaa8a374ac787"
+  resolved "./payloadcms-next-payload-v0.1.11.tgz#3ea2a70991b1f932601f63f1d0bdef2d0cf3a2c8"
   dependencies:
     "@swc/core" "^1.3.35"
     "@swc/register" "^0.1.10"
