@@ -7,7 +7,11 @@ const nextConfig = withPayload(
     eslint: {
       ignoreDuringBuilds: true,
     },
-    transpilePackages: ["@payloadcms/plugin-seo", "payload/components/forms"],
+    transpilePackages: [
+      "@payloadcms/plugin-seo",
+      "payload/components/forms",
+      "payload/components",
+    ],
     images: {
       domains: [
         "localhost",
@@ -15,6 +19,11 @@ const nextConfig = withPayload(
         process.env.NEXT_PUBLIC_APP_URL,
         `${process.env.NEXT_PUBLIC_S3_ENDPOINT}`.replace("https://", ""),
       ],
+    },
+    webpack: {
+      resolve: {
+        alias: {},
+      },
     },
   },
   {
