@@ -1839,7 +1839,7 @@
 
 "@payloadcms/next-payload@./payloadcms-next-payload-v0.1.11.tgz":
   version "0.1.11"
-  resolved "./payloadcms-next-payload-v0.1.11.tgz#6c123a64ecf4fe815f79ce696beec12dc0bb7de0"
+  resolved "./payloadcms-next-payload-v0.1.11.tgz#694d95ba202383e3ed65b5991fa3792c2671e40f"
   dependencies:
     "@swc/core" "^1.3.35"
     "@swc/register" "^0.1.10"
